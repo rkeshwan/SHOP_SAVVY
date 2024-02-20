@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'json'
+
+result = File.read(File.join(File.dirname(__FILE__),"all-products.json"))
+JSON.parse(result).each do |item|
+  p item["brand"]
+  p item["name"]
+  p item["price"]
+end
