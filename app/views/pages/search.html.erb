@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="header">All products</h1>
+  <div class="col-2">
+    <div class="columns is-centered">
+      <div class="search-cards">
+        <% @items.each do |item| %>
+        <div class="items">
+          <div class="item-desc">
+            <p><%= item.name %> | <%= item.price %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

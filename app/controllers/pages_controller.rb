@@ -5,10 +5,9 @@ class PagesController < ApplicationController
   end
 
   def search
-  end
-
-  def dashboard
     @items = Item.all
   end
 
+  def dashboard
+  end
 end
