@@ -31,3 +31,9 @@ bliss_foods = { name: 'Bliss Foods', address: '2 Frozen Alley, Cremorne' }
 [coles, woolworths, organic_oasis, city_mart, bliss_foods].each do |attributes|
   store = Store.create!(attributes)
 end
+
+# 1. create a grocery list - this will exist for the user when they log in to test it
+# 2. create as many line items as needed in the grocery list - the list will need to be specified for the item
+GroceryList.create!
+
+LineItem.create! # (can be done multi times)
