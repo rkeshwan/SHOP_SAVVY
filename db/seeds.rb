@@ -12,10 +12,9 @@ edith = { email: 'edith@gmail.com', password: 'password' }
 
 [anna, jack, edith].each do |attributes|
   user = User.create!(attributes)
+end
 
-#
 # Examples:
-#
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
@@ -23,10 +22,11 @@ require 'json'
 
 result = File.read(File.join(File.dirname(__FILE__),"all-products.json"))
 JSON.parse(result).each do |item|
-  p item["brand"]
-  p item["name"]
-  p item["price"]
-
+  # p item["brand"]
+  # p item["name"]
+  # p item["price"]
+  Item.create!(name: item["name"], category: item["categoryIds"].first, price: item["price"])
+end
 
 Store.destroy_all
 
@@ -38,5 +38,4 @@ bliss_foods = { name: 'Bliss Foods', address: '2 Frozen Alley, Cremorne' }
 
 [coles, woolworths, organic_oasis, city_mart, bliss_foods].each do |attributes|
   store = Store.create!(attributes)
-
 end
