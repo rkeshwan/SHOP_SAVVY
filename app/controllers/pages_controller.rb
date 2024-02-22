@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @item = item['brand']
+    @items = Item.all
   end
 
 end
