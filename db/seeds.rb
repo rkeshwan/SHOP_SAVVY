@@ -16,7 +16,7 @@ require 'json'
 
 result = File.read(File.join(File.dirname(__FILE__),"all-products.json"))
 JSON.parse(result).each do |item|
-  Item.create!(name: item["name"], category: item["categoryIds"].first, price: item["price"])
+  Item.create!(name: item["name"], category: item["categoryIds"].first, price: item["price"], image: item("imagePath"))
 end
 
 # Store database
