@@ -13,10 +13,20 @@ end
 
 # Item database
 require 'json'
+require "open-uri"
+require "pry-byebug"
+
+# Debug the url 132 item url has error
+# count = 0
+# puts "item #{count} created"
+# count += 1
 
 result = File.read(File.join(File.dirname(__FILE__),"all-products.json"))
 JSON.parse(result).each do |item|
-  Item.create!(name: item["name"], category: item["categoryIds"].first, price: item["price"], image: item("imagePath"))
+  file = URI.open(item["imagePath"])
+  item = Item.new(name: item["name"], category: item["categoryIds"].first, price: item["price"])
+  item.photo.attach(io: file, filename: "#{item.name}.jpg", content_type: "image/jpg")
+  item.save
 end
 
 # Store database

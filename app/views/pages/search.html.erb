@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1 class="header">All products</h1>
+  <h1 class="header">All products</h1>
 
   <div class="col-sm-8 my-3">
     <%= form_with url: search_path, method: :get, class: "d-flex" do %>
@@ -11,19 +11,16 @@
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
-  </div>
-  
-  <div class="col-2">
-    <div class="columns is-centered">
-      <div class="search-cards">
-        <% @items.each do |item| %>
-        <div class="items">
-          <div class="item-desc">
-            <p><%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %></p>
-          </div>
+
+    <div class="search-cards">
+      <% @items.each do |item| %>
+      <div class="items">
+        <div class="item-desc">
+          <p><%= image_tag item.photo, height: 300, width: 400, crop: :fill %><%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %></p>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </div>
+
 </div>
