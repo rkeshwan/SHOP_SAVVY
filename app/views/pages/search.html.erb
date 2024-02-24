@@ -1,12 +1,25 @@
 <div class="container">
-  <h1 class="header">All products</h1>
+
+<h1 class="header">All products</h1>
+
+  <div class="col-sm-8 my-3">
+    <%= form_with url: search_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a product"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  
   <div class="col-2">
     <div class="columns is-centered">
       <div class="search-cards">
         <% @items.each do |item| %>
         <div class="items">
           <div class="item-desc">
-            <p><%= item.name %> | <%= item.price %></p>
+            <p><%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %></p>
           </div>
         </div>
         <% end %>

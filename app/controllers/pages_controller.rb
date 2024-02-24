@@ -6,6 +6,12 @@ class PagesController < ApplicationController
 
   def search
     @items = Item.all
+    if params[:query].present?
+      @items = @items.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+  end
+
+  def index
   end
 
   def dashboard
