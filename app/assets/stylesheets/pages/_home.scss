@@ -30,7 +30,7 @@ a:hover {
 
 
 
-// dashboard stuff
+// dashboard circles, background, savings and initial dispaly
 .dashboard_background{
   background-color: #14AE5C;
   height: 650px;
@@ -82,19 +82,20 @@ a:hover {
   background-color: #BBE2AE;
 }
 
-// Grocery and favourite lists
+// Grocery and favourite lists on dashboard
 
 #grocer_list{
   display: flex;
   justify-content: space-between;
   border: transparent;
+  height: 170px;
+  width: 260px;
   margin-bottom: 20px;
   padding-top: 10px;
   padding-left: 7px;
   padding-right: 7px;
   border-radius: 3px;
   background-color: #BBE2AE;
-  width: max-content;
   justify-content: left;
   margin-left: auto;
 }
@@ -103,7 +104,13 @@ a:hover {
   display: flex;
   justify-content: space-between;
   border: transparent;
+  height: 170px;
+  width: 250px;
+  margin-bottom: 20px;
   padding-top: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 3px;
   border-radius: 3px;
   background-color: #BBE2AE;
   width: max-content;
