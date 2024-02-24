@@ -1,6 +1,5 @@
 class LineItem < ApplicationRecord
   belongs_to :item
-  has_many :grocery_lists
-
+  belongs_to :grocery_list
   validates :quantity, presence: true
 end
