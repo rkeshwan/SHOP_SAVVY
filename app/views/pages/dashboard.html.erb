@@ -1,0 +1,40 @@
+<%# navbar fixed with logo and two links %>
+
+<div class="dashboard_background">
+
+<%# small message to user with current login %>
+<div class="main_div">
+  <h1>Welcome <%= "#{@user}" %></h1>
+
+  <div class="savings">
+    <div class="weekly">
+      <h5>This week you have saved</h5>
+    </div>
+
+    <div class="monthly">
+      <h5>This month you have saved</h5>
+    </div>
+
+    <div class="yearly">
+      <h5>This year you have saved</h5>
+    </div>
+  </div>
+  <%# div for week %>
+  <%# div for month %>
+  <%# div for year %>
+
+
+  <div class="product_lists">
+      <div id="grocer_list">
+        <h4>Your Grocers</h4>
+      </div>
+
+      <div id="favourite_list">
+        <h4>Your Favourite Products</h4>
+      </div>
+  </div>
+</div>
+<%# div for favourite products %>
+<%# div for grovers %>
+
+</div>

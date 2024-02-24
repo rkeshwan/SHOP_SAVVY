@@ -1,4 +1,21 @@
 <div data-controller="hello">
-<h1 data-hello-target="test">Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="blank_div">
+  <div class="logo py-2">
+    <h1>SHOP SAVVY</h1>
+    <%# <link rel="stylesheet" href="">      placeholder%>
+      <div class="home_canvas">
+        <h1>Have you ever wanted</h1>
+        <p>We offer exclusive knowledge on</p>
+          <button type="button" class="return_btn" >
+            <%= link_to "Get Started", dashboard_path(@dashboard) %>
+          </button>
+      </div>
+  </div>
 </div>
+
+
+<%# main section div that is plain %>
+<%# navbar at the top with logo and buttons %>
+<%# Mainpage with catchphrase %>
+<%# image inside of this %>
