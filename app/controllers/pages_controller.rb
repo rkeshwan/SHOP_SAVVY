@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
 
   def search
-    @items = Item.first(20)
     if params[:query].present?
+      @items = Item.all
       @items = @items.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @items = Item.first(5)
     end
 
     @grocery_lists = GroceryList.find_by(user: current_user)
