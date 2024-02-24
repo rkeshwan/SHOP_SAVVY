@@ -303,6 +303,7 @@ DEPENDENCIES
   open-uri
   pg (~> 1.1)
   pry-byebug
+  pry
   puma (~> 5.0)
   rails (~> 7.0.8)
   sassc-rails
