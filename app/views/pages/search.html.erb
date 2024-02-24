@@ -34,9 +34,10 @@
     <div class="columns is-centered">
       <div class="grocery-cards">
         <% @line_items.each do |line| %>
-        <p><%= line.item.name %> | <%= line.item.price %> | <%= line.quantity %></p>
-        <% end %>
+        <p><%= image_tag line.item.photo, height: 300, width: 400, crop: :fill %><%= line.item.name %></p>
+        <%= button_to 'Add to list', add_item_line_item_path(@items), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %><%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %></p>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
