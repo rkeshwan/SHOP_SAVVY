@@ -5,7 +5,9 @@ class PagesController < ApplicationController
   end
 
   def search
-    @items = Item.all
+    @items = Item.first(20)
+    @grocery_lists = GroceryList.find_by(user: current_user)
+    @line_items = GroceryList.find_by(user: current_user).line_items
   end
 
   def dashboard

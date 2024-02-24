@@ -16,4 +16,16 @@
       </div>
     </div>
   </div>
+
+  <h1 class="header">Grocery List</h1>
+  <div class="col-2">
+    <div class="columns is-centered">
+      <div class="grocery-cards">
+        <% @line_items.each do |line| %>
+        <p><%= line.item.name %> | <%= line.item.price %> | <%= line.quantity %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
