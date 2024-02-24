@@ -1,6 +1,4 @@
 // Specific CSS for your home-page
-
-
 a:link {
   text-decoration: none;
 }
@@ -22,13 +20,10 @@ a:hover {
 }
 
 .return_btn {
-  margin-top: 120px;
   transition-delay: 2s;
   border: transparent;
   border-radius: 3px;
 }
-
-
 
 // dashboard circles, background, savings and initial dispaly
 .dashboard_background{
@@ -40,53 +35,51 @@ a:hover {
   padding: 20px;
 }
 
-.weekly{
+.savings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  position: absolute;
-  top: 220px;
-  right: 640px;
-  padding: 25px;
-  padding-top: 37px;
   border: transparent;
+}
+
+#weekly, #monthly, #yearly {
+  margin: 20px;
+  padding: 25px;
+  border-radius: 50%;
+  background-color: #BBE2AE;
+}
+
+#weekly {
+  position: absolute;
+  top: 24%;
+  left: 22%;
   width: 150px;
   height: 150px;
-  border-radius: 50%;
-  background-color: #BBE2AE;
 }
 
-.monthly{
-  text-align: center;
+#monthly {
   position: absolute;
-  top: 220px;
-  right: 340px;
-  padding: 25px;
-  padding-top: 42px;
-  border: transparent;
+  top: 28%;
+  left: 40%;
   width: 180px;
   height: 180px;
-  border-radius: 50%;
-  background-color: #BBE2AE;
 }
 
-.yearly{
-  text-align: center;
+#yearly {
   position: absolute;
-  top: 390px;
-  right: 490px;
-  padding: 30px;
-  padding-top: 65px;
-  border: transparent;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
+  bottom: 20%;
+  left: 35%;
+  transform: translateX(-50%);
+  padding: 25px;
+  width: 240px;
+  height: 240px;
   background-color: #BBE2AE;
 }
 
 // Grocery and favourite lists on dashboard
-
-#grocer_list{
+.product_lists{
   display: flex;
-  justify-content: space-between;
   border: transparent;
   height: 170px;
   width: 260px;
@@ -100,20 +93,22 @@ a:hover {
   margin-left: auto;
 }
 
-#favourite_list{
-  display: flex;
-  justify-content: space-between;
-  border: transparent;
-  height: 170px;
-  width: 250px;
-  margin-bottom: 20px;
-  padding-top: 10px;
-  padding-left: 7px;
-  padding-right: 7px;
+// Buttons
+
+.dash_btn{
+  font-size: small;
+  transition-delay: 2s;
+  border: 2px solid white;
   border-radius: 3px;
-  border-radius: 3px;
-  background-color: #BBE2AE;
-  width: max-content;
-  justify-content: left;
-  margin-left: auto;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#dash_btn_spacing{
+  margin-top: 115px;
+  margin-left: 30px;
+}
+
+#dash_grocer{
+  position: right;
 }
