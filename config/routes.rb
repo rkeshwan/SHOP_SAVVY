@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :line_items, only: [:destroy] do
-
     member do
       post :add_item
       post :adjust_item
