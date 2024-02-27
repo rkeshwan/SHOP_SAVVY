@@ -1,17 +1,45 @@
-.search-container{
-  width: 2000px;
-  padding: 10px;
+body{
+  padding: 20px;
+  margin: 5px;
+  background-color: #284A35;
+}
+
+.product_bar{
+  background-color: black;
+  color: white;
+  border: transparent;
+  padding-left: 9px;
+  border-radius: 4px;
+  font-weight: 200;
+}
+
+.line_item{
+  float: left;
+  background-color: #284A35;
+  width: 50%;
+}
+
+#grocery_items{
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: white;
+  border: 1px black solid;
   text-align: left;
 }
 
-.search-cards{
-  width: 800px;
-  padding: 10px;
-  text-align: left;
+.right{
+  float: right;
+  background-color: #284A35;
+  width: 50%;
 }
 
-.grocery-cards{
-  width: 800px;
-  padding: 10px;
-  text-align: right;
+.list_bar{
+  background-color: #76a566;
+  color: black;
+  border: transparent;
+  text-align: center;
+  padding-left: 9px;
+  border-radius: 4px;
+  font-weight: 200;
 }
