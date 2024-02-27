@@ -37,14 +37,12 @@
         <p><%= image_tag line.item.photo, height: 300, width: 400, crop: :fill %><%= line.item.name %></p>
         <%= button_to 'Remove', line_item_path(@items), class: "btn btn-outline-danger", method: :delete, style: "border-radius: 20px;" %><%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %></p>
         <%= form_with model: line, method: :patch, local: false do |f| %>
-          <%= f.number_field :quantity, min: 1, max: 100 %>
+          <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
           <%= f.submit %>
         <% end %>
       </div>
       <% end %>
     </div>
   </div>
-</div>
-</div>
 </div>
 </div>
