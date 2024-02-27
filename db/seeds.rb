@@ -4,6 +4,7 @@ require 'json'
 require "open-uri"
 require "pry-byebug"
 
+puts "Clearing db"
 LineItem.destroy_all
 GroceryList.destroy_all
 Store.destroy_all
@@ -14,13 +15,14 @@ anna = { email: 'anna@gmail.com', password: 'password' }
 jack = { email: 'jack@gmail.com', password: 'password' }
 edith = { email: 'edith@gmail.com', password: 'password' }
 
+puts "Creating users"
 [anna, jack, edith].each do |attributes|
   User.create!(attributes)
 end
-User.all.each do |user|
 
 # Item database
-result = File.read(File.join(File.dirname(__FILE__),"all-products.json"))
+puts "Creating items"
+result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
 JSON.parse(result).each do |item|
   file = URI.open(item["imagePath"])
   item = Item.new(name: item["name"], category: item["categoryIds"].first, price: item["price"])
@@ -29,6 +31,7 @@ JSON.parse(result).each do |item|
 end
 
 # Store database
+puts "Creating stores"
 coles = { name: 'Coles', address: '7 Boundary St, Hawthorn' }
 woolworths = { name: 'Woolworths', address: '56 Salamanca Rd, South Melbourne' }
 organic_oasis = { name: 'Organic Oasis', address: '55 Soho St, Northcote' }
@@ -39,11 +42,13 @@ bliss_foods = { name: 'Bliss Foods', address: '2 Frozen Alley, Cremorne' }
   Store.create!(attributes)
 end
 
-# Default grocery list - this will exist for the user when they log in to test it
-list = GroceryList.create!(user: user)
-Item.first(5).each do |line_item|
-  # binding.pry
-  puts "Creating 1 line item"
-  LineItem.create!(quantity: 1, item: line_item, grocery_list: list)
-end
+puts "Creating grocery lists"
+User.all.each do |user|
+  # Default grocery list - this will exist for the user when they log in to test it
+  list = GroceryList.create!(user: user)
+  Item.first(5).each do |line_item|
+    # binding.pry
+    puts "Creating 1 line item"
+    LineItem.create!(quantity: 1, item: line_item, grocery_list: list)
+  end
 end
