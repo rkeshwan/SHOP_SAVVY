@@ -17,35 +17,33 @@
     <% end %>
 </div>
 
-    <%# cards for items %>
-    <%# display fractions with flexbox %>
-<div class="line_item">
-    <%  @items.each do |item|  %>
-    <div class="line_item" id="grocery_items">
-   <p><%= image_tag item.photo, height: 100, width: 150, crop: :fill %>
-   <%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %></p>
-
-      <div class="button">
-        <%= button_to 'Add to list', add_item_line_item_path(@items), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %>
+<%# left div works fine %>
+  <div class="card_wrap">
+    <div class="left_div">
+        <%  @items.each do |item|  %>
+        <div class="left_div" id="grocery_items">
+      <p><%= image_tag item.photo, height: 80, width: 120, crop: :fill %>
+      <%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %></p>
+          <div class="button">
+            <%= button_to 'Add to list', add_item_line_item_path(@items), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %>
+          </div>
       </div>
-  </div>
-    <% end %>
-</div>
-   <%# new card ^ %> <%#
-
-  <%# cards for each items. green the above card out and divs out, then work on them %>
-
-  <div class="right">
-    <div class="list_bar">
-      <h1>Grocery List</h1>
-    </div>
-
-        <% @line_items.each do |line| %>
-        <div id="grocery_items">
-          <p><%= image_tag line.item.photo, height: 100, width: 150, crop: :fill %><%= line.item.name %></p>
-          <%= button_to 'Add to list', add_item_line_item_path(@items), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %><%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %></p>
         <% end %>
-
+    </div>
+<%# grocery items %>
+    <div class="right_div">
+      <div class="list_bar">
+        <h1> Your List</h1>
+      </div>
+      <% @line_items.each do |line| %>
+        <div id="grocery_items">
+          <p><%= image_tag line.item.photo, height: 80, width: 120, crop: :fill %> </p>
+          <p><%= line.item.name %></p>
+            <div class="button">
+          <%= button_to 'Add to list', add_item_line_item_path(@items), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %><%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %></p>
+            </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </body>
