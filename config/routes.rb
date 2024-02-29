@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :line_items, only: [:destroy] do
     member do
       post :add_item
-      post :adjust_item
+      patch :adjust_item
     end
   end
 

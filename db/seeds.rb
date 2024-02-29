@@ -24,9 +24,9 @@ end
 puts "Creating items"
 result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
 JSON.parse(result).each do |item|
-  file = URI.open(item["imagePath"])
-  item = Item.new(name: item["name"], category: item["categoryIds"].first, price: item["price"])
-  item.photo.attach(io: file, filename: "#{item.name}.jpg", content_type: "image/jpg")
+  file = URI.open(item["imagePath"]) # add col. via migration for photo URL & delete this line
+  item = Item.new(name: item["name"], category: item["categoryIds"].first, price: item["price"]) # photo_url = (item["imagePath"] - add as key value pair
+  item.photo.attach(io: file, filename: "#{item.name}.jpg", content_type: "image/jpg") # remove line
   item.save
 end
 
