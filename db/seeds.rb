@@ -9,6 +9,7 @@ LineItem.destroy_all
 GroceryList.destroy_all
 Store.destroy_all
 User.destroy_all
+Item.destroy_all
 
 # User database
 anna = { email: 'anna@gmail.com', password: 'password' }
