@@ -11,6 +11,7 @@ class LineItemsController < ApplicationController
   def adjust_item
     @line_item = LineItem.find(params[:id])
     @line_item.update(line_item_params)
+    @line_item.save
   end
 
   def destroy
