@@ -1,17 +1,58 @@
-.search-container{
-  width: 2000px;
-  padding: 10px;
+body{
+  padding: 20px;
+  margin: 5px;
+  background-color: #284A35;
+}
+
+.product_bar{
+  background-color: black;
+  color: white;
+  border: transparent;
+  padding-left: 9px;
+  border-radius: 4px;
+  font-weight: 200;
+}
+
+.card_wrap{
+  display: flex;
+  flex-direction: wrap;
+  width: 100%;
+}
+
+.left_div{
+  flex: 6;
+  background-color: #284A35;
+  margin-right: 30px;
+}
+
+#grocery_items{
+  margin: 8px;
+  padding: 5px;
+  border-radius: 7px;
+  background-color: white;
+  border: 0.5px black solid;
   text-align: left;
 }
 
-.search-cards{
-  width: 800px;
-  padding: 10px;
-  text-align: left;
+.right{
+  flex: 4;
+  background-color: #284A35;
 }
 
-.grocery-cards{
-  width: 800px;
-  padding: 10px;
-  text-align: right;
+.list_bar{
+  background-color: #76a566;
+  color: black;
+  border: transparent;
+  text-align: center;
+  padding-left: 9px;
+  border-radius: 4px;
+  font-weight: 200;
+}
+
+.cube{
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px black solid;
+  background-color: white;
 }
