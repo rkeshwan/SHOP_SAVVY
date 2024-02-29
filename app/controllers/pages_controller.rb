@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
     @grocery_lists = GroceryList.find_by(user: current_user)
     @line_items = GroceryList.find_by(user: current_user).line_items
+    # @line_items.update_attribute(:quantity)
   end
 
   def index
