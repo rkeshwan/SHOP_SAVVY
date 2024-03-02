@@ -5,6 +5,7 @@ require "open-uri"
 require "pry-byebug"
 
 puts "Clearing db"
+ItemStore.destroy_all
 LineItem.destroy_all
 GroceryList.destroy_all
 Store.destroy_all
@@ -21,15 +22,6 @@ puts "Creating users"
   User.create!(attributes)
 end
 
-# Item database
-puts "Creating items"
-result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
-JSON.parse(result).each do |json_item|
-  item = Item.new(name: json_item["name"], category: json_item["categoryIds"].first, price: json_item["price"])
-  item.photo_url = json_item["imagePath"]
-  item.save!
-end
-
 # Store database
 puts "Creating stores"
 coles = { name: 'Coles', address: '7 Boundary St, Hawthorn' }
@@ -41,6 +33,28 @@ bliss_foods = { name: 'Bliss Foods', address: '2 Frozen Alley, Cremorne' }
 [coles, woolworths, organic_oasis, city_mart, bliss_foods].each do |attributes|
   Store.create!(attributes)
 end
+
+# Item database
+puts "Creating items"
+result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
+JSON.parse(result).each do |json_item|
+  Store.all.each do |store|
+    # create var. randomise price. fluctuate by 10% for every item on the existing price - replace this will value in price in line below. in rails c - check the name, store & prices for each item to see the 5 diff ones - first(5)
+    adj = rand(0.10..0.15)
+    item = Item.new(name: json_item["name"], category: json_item["categoryIds"].first, price: json_item["price"] * (1 + adj))
+    item.photo_url = json_item["imagePath"]
+    item.save!
+    ItemStore.create!(item_id: item.id, store_id: store.id)
+  end
+end
+
+
+# puts "Creating item stores"
+# # find all items in DB
+# # each of items, create an itemstore with random store
+# Item.all.each do |item|
+#   ItemStore.create!(item_id: item.id, store_id: Store.all.sample.id)
+# end
 
 puts "Creating grocery lists"
 User.all.each do |user|
