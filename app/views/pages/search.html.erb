@@ -7,7 +7,7 @@
 
 
 <%# search bar similar to all products but colours reversed %>
-<div class="col-sm-8 my-3">
+<div class="col-sm-6 my-3">
     <%= form_with url: search_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
