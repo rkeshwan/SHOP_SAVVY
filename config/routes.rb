@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get 'dashboard', to: 'pages#dashboard'
   get 'search', to: 'pages#search'
+  get 'cart', to: 'pages#cart'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

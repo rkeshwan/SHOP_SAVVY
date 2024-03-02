@@ -19,4 +19,18 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def cart
+    @grocery_list = GroceryList.find_by(user: current_user)
+    @items = @grocery_list.items
+# store_hash = {}
+# // The stores that are attached via grocery list/items/then stores
+# @stores.each |store|
+# if store_hash[:store]
+# store_hash[:store] += store.item.amount
+# else
+# store_hash[:store] = store.item.amount
+# End
+  end
+
 end
