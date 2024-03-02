@@ -41,7 +41,7 @@
           <div class="grocery-cards">
             <% @line_items.each do |line| %>
             <p>
-              <%= image_tag line.item.photo, height: 96, width: 120, crop: :fill %>
+              <%= image_tag "https://shop.coles.com.au/wcsstore/Coles-CAS/images/3/2/1/3217654.jpg", height: 96, width: 120, crop: :fill %>
               <%= line.item.name %> | <%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %>
             </p>
             <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
