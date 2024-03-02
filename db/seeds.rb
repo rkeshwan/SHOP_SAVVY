@@ -21,11 +21,14 @@ puts "Creating users"
   User.create!(attributes)
 end
 
+# specify user agent to fetch images
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 # Item database
 puts "Creating items"
 result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
 JSON.parse(result).each do |item|
-  file = URI.open(item["imagePath"]) # add col. via migration for photo URL & delete this line
+  file = URI.open(item["imagePath"], "User-Agent" => user_agent) # add col. via migration for photo URL & delete this line
+  puts "file: #{file}"
   item = Item.new(name: item["name"], category: item["categoryIds"].first, price: item["price"]) # photo_url = (item["imagePath"] - add as key value pair
   item.photo.attach(io: file, filename: "#{item.name}.jpg", content_type: "image/jpg") # remove line
   item.save
