@@ -6,13 +6,11 @@ class PagesController < ApplicationController
 
   def search
     if params[:query].present?
-      @items = Item.all
-      @items = @items.where("name ILIKE ?", "%#{params[:query]}%")
+      @items = Item.search_by_name_and_category(params[:query])
     else
       @items = Item.first(5)
     end
 
-    @grocery_lists = GroceryList.find_by(user: current_user)
     @line_items = GroceryList.find_by(user: current_user).line_items
   end
 
