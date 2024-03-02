@@ -22,7 +22,7 @@
       <% @items.each do |item|  %>
       <div class="left_div" id="grocery_items">
         <p>
-          <%= image_tag item.photo, height: 120, width: 120, crop: :fill %>
+          <%= image_tag item.photo_url, height: 120, width: 120, crop: :fill %>
           <%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %>
         </p>
         <div class="button">
@@ -41,7 +41,7 @@
           <div class="grocery-cards">
             <% @line_items.each do |line| %>
             <p>
-              <%= image_tag "https://shop.coles.com.au/wcsstore/Coles-CAS/images/3/2/1/3217654.jpg", height: 96, width: 120, crop: :fill %>
+              <%= image_tag line.item.photo_url, height: 96, width: 120, crop: :fill %>
               <%= line.item.name %> | <%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %>
             </p>
             <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
