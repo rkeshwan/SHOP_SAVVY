@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-<div class="container">
+<div class="display">
   <%# left div works fine %>
   <div class="card_wrap">
     <div class="left_div">
@@ -37,7 +37,6 @@
   <div class="right_div">
     <div class="list_bar">
       <h1 class="header">Grocery List</h1>
-        <div class="columns is-centered">
           <div class="grocery-cards">
             <% @line_items.each do |line| %>
             <p>
@@ -47,15 +46,16 @@
             <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
               <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
               <%= f.submit %>
+            <% end %>
             <div class="button">
-              <%= button_to 'Remove', line_item_path(line), class: "btn btn-outline-danger", method: :delete, style: "border-radius: 20px;" %>
+              <%= button_to 'Remove', line_item_path(line), class: "btn btn-outline-danger", method: "delete" , style: "border-radius: 20px;" %>
             </div>
-            <% end %>
-            <% end %>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
   </div>
+</div>
+</div>
 </body>
