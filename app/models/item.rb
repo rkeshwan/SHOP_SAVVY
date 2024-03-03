@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
-  has_many :item_store
+  has_many :item_stores
   has_many :grocery_lists, through: :line_item
-  has_many :stores, through: :item_store
+  has_many :stores, through: :item_stores
   has_one_attached :photo
   include PgSearch::Model
 

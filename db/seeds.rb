@@ -39,29 +39,23 @@ puts "Creating items"
 result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
 JSON.parse(result).each do |json_item|
   Store.all.each do |store|
-    # create var. randomise price. fluctuate by 10% for every item on the existing price - replace this will value in price in line below. in rails c - check the name, store & prices for each item to see the 5 diff ones - first(5)
-    adj = rand(0.10..0.15)
-    item = Item.new(name: json_item["name"], category: json_item["categoryIds"].first, price: json_item["price"] * (1 + adj))
+    adjusted_price = (json_item["price"] * rand(0.90..1.10)) * 100
+    item = Item.new(
+      name: json_item["name"],
+      category: json_item["categoryIds"].first,
+      price: adjusted_price
+    )
     item.photo_url = json_item["imagePath"]
     item.save!
     ItemStore.create!(item_id: item.id, store_id: store.id)
   end
 end
 
-
-# puts "Creating item stores"
-# # find all items in DB
-# # each of items, create an itemstore with random store
-# Item.all.each do |item|
-#   ItemStore.create!(item_id: item.id, store_id: Store.all.sample.id)
-# end
-
 puts "Creating grocery lists"
 User.all.each do |user|
   # Default grocery list - this will exist for the user when they log in to test it
   list = GroceryList.create!(user: user)
-  Item.first(5).each do |line_item|
-    # binding.pry
+  Item.where("id % 10 = 0").offset(4).limit(5).shuffle.each do |line_item|
     puts "Creating 1 line item"
     LineItem.create!(quantity: 1, item: line_item, grocery_list: list)
   end

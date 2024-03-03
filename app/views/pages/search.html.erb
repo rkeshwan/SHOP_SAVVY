@@ -23,7 +23,8 @@
         <div class="left_div" id="grocery_items">
           <p>
             <%= image_tag item.photo_url, height: 120, width: 120, crop: :fill %>
-            <%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %>
+            <%= item.name %> | <%= item.stores.first.name %> |
+            <%= number_to_currency(item.price / 100.0, unit: '$', format: '%u%n') %>
           </p>
           <div class="button">
             <%= button_to 'Add to list', add_item_line_item_path(item), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %>
@@ -41,7 +42,8 @@
           <% @line_items.each do |line| %>
           <div class="line-item">
             <%= image_tag line.item.photo_url, height: 96, width: 120, crop: :fill %>
-            <%= line.item.name %> | <%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> |
+            <%= line.item.name %> | <%= line.item.stores.first.name %> |
+            <%= number_to_currency(line.item.price * line.quantity / 100.0, unit: '$', format: '%u%n') %> | Qty:
             <%= line.quantity %>
             <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
             <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
@@ -56,7 +58,5 @@
       </div>
       <%= link_to "Save as current list", cart_path, method: :post, class: "btn btn-success", style: "border-radius: 20px;" %>
     </div>
-  </div>
-  </div>
   </div>
 </body>
