@@ -5,11 +5,16 @@
   </div>
 
   <div class="supermarket">
-    <h1>Coles</h1>
-    <h1>Woolworths</h1>
-    <h1>Organic Oasis</h1>
-    <h1>City Mart</h1>
-    <h1>Bliss Foods</h1>
+    <% @store_hash.each do |store, value| %>
+      <h2><%= store %></h2>
+      <h2><%= value[:totalprice] %></h2>
+      <ul>
+        <% value[:items].each do |item| %>
+         <li><%= item.item.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
   </div>
 
 </body>

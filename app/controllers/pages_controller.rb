@@ -22,15 +22,27 @@ class PagesController < ApplicationController
 
   def cart
     @grocery_list = GroceryList.find_by(user: current_user)
-    @items = @grocery_list.items
-# store_hash = {}
-# // The stores that are attached via grocery list/items/then stores
-# @stores.each |store|
-# if store_hash[:store]
-# store_hash[:store] += store.item.amount
-# else
-# store_hash[:store] = store.item.amount
-# End
+    @line_items = @grocery_list.line_items
+    @store_hash = {}
+    # {
+    #   "coles": {
+    #     totalprice: 1,
+    #     items: []
+    #   }
+    # }
+    @line_items.each do |line|
+      key = line.item.stores.first.name
+      if @store_hash[key]
+        @store_hash[key][:totalprice] += (line.item.price * line.quantity) /100.0
+        @store_hash[key][:items] << line
+      else
+        @store_hash[key] = {
+          totalprice: (line.item.price * line.quantity) /100.0,
+          items: [line]
+        }
+        # @store_hash[key][:totalprice] = (line.item.price * line.quantity) /100.0
+        # @store_hash[key][:item] = [line]
+      end
+    end
   end
-
 end
