@@ -1,27 +1,28 @@
 <%# navbar fixed with logo and two links %>
 
 <div class="dashboard_background">
-<%# small message to user with current login %>
+  <%# small message to user with current login %>
 
-<div class="main_div">
-  <h1>Hello </h1>
-  <p>Welcome back to your Savvy Shopper dashboard</p>
+  <div class="main_div">
+    <h1>Hello </h1>
+    <p>Welcome back to your Savvy Shopper dashboard</p>
 
 
-<%# Need to add the savings per time as well %>
-<div class="savings">
-    <div class="savings" id="weekly">
-      <h5>This week you have saved</h5>
+    <%# Need to add the savings per time as well %>
+    <div class="savings">
+      <div class="savings" id="weekly">
+        <h5>This week you have saved</h5>
+      </div>
+
+      <div class="savings" id="monthly">
+        <h5>This month you have saved</h5>
+      </div>
+
+      <div class="savings" id="yearly">
+        <h5>This year you have saved</h5>
+      </div>
     </div>
 
-    <div class="savings" id="monthly">
-      <h5>This month you have saved</h5>
-    </div>
-
-    <div class="savings" id="yearly">
-      <h5>This year you have saved</h5>
-    </div>
-</div>
 
 <%# line 30 needs to be fixed so it goes to an actual groceries page or able to edit %>
         <div class="product_lists" id="grocer_list">
@@ -41,6 +42,9 @@
              <%= render partial: 'cart', locals: { store_hash: @store_hash } %>
           </ul>
         </div>
+
+    </div>
+
     </div>
   </div>
-</div>
+
