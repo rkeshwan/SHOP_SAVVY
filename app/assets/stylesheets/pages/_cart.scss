@@ -2,8 +2,72 @@
 //   display: grid;
 //   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
 //   gap: 20px; /* Adjust gap between items */
-// }
+// // }
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns */
+}
+
+.stores-container {
+  display: flex; /* Display children in a flex container */
+  flex-wrap: wrap; /* Wrap the children to form multiple rows */
+  gap: 40px; /* Add space between columns */
+}
+
+.store {
+  flex: 1 0 200px; /* Set a flex basis with a maximum width of 200px */
+  padding: 20px;
+  // border: 1px solid #ccc;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.header {
+  display: flex; /* Display children in a flex container */
+  flex-wrap: wrap; /* Wrap the children to form multiple rows */
+}
+
+h2 {
+  flex: 1 0 200px;
+  margin: 8px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: rgb(244, 231, 158);
+  text-align: center;
+  border-radius: 7px;
+}
+
+.price {
+  margin: 8px;
+  flex: 1 0 200px; /* Set a flex basis with a maximum width of 200px */
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center; /* Ensure padding is included in the width */
+  background-color: white;
+  border-radius: 7px;
+}
+
+.item {
+  display: flex; /* Display children in a flex container */
+
+}
+
+.line {
+  margin: 8px;
+  padding: 5px;
+  padding-left: 20px;
+  border-radius: 7px;
+  background-color: white;
+  border: 0.5px black solid;
+  text-align: left;
+  width: 80%;
+}
+
+.line-price {
+  margin: 8px;
+  padding: 5px;
+  text-align: center; /* Ensure padding is included in the width */
+  background-color: white;
+  border: 0.5px black solid;
+  border-radius: 7px;
+  width: 20%;
 }
