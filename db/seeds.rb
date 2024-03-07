@@ -5,6 +5,7 @@ require "open-uri"
 require "pry-byebug"
 
 puts "Clearing db"
+ItemStore.destroy_all
 LineItem.destroy_all
 GroceryList.destroy_all
 Store.destroy_all
@@ -21,16 +22,6 @@ puts "Creating users"
   User.create!(attributes)
 end
 
-# Item database
-puts "Creating items"
-result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
-JSON.parse(result).each do |item|
-  file = URI.open(item["imagePath"]) # add col. via migration for photo URL & delete this line
-  item = Item.new(name: item["name"], category: item["categoryIds"].first, price: item["price"]) # photo_url = (item["imagePath"] - add as key value pair
-  item.photo.attach(io: file, filename: "#{item.name}.jpg", content_type: "image/jpg") # remove line
-  item.save
-end
-
 # Store database
 puts "Creating stores"
 coles = { name: 'Coles', address: '7 Boundary St, Hawthorn' }
@@ -43,12 +34,28 @@ bliss_foods = { name: 'Bliss Foods', address: '2 Frozen Alley, Cremorne' }
   Store.create!(attributes)
 end
 
+# Item database
+puts "Creating items"
+result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
+JSON.parse(result).each do |json_item|
+  Store.all.each do |store|
+    adjusted_price = (json_item["price"] * rand(0.90..1.10)) * 100
+    item = Item.new(
+      name: json_item["name"],
+      category: json_item["categoryIds"].first,
+      price: adjusted_price
+    )
+    item.photo_url = json_item["imagePath"]
+    item.save!
+    ItemStore.create!(item_id: item.id, store_id: store.id)
+  end
+end
+
 puts "Creating grocery lists"
 User.all.each do |user|
   # Default grocery list - this will exist for the user when they log in to test it
   list = GroceryList.create!(user: user)
-  Item.first(5).each do |line_item|
-    # binding.pry
+  Item.where("id % 10 = 0").offset(4).limit(5).shuffle.each do |line_item|
     puts "Creating 1 line item"
     LineItem.create!(quantity: 1, item: line_item, grocery_list: list)
   end

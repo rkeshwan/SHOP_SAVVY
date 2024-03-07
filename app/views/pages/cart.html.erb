@@ -1,0 +1,16 @@
+<body>
+  <%# all products cover entire page, white txt, black backdrop %>
+  <div class="product_bar">
+    <h1>Your shopping carts</h1>
+  </div>
+
+  <% @store_hash.each do |store, value| %>
+      <h2><%= store %></h2>
+      <h3>Total Price: <%= value[:totalprice] %></h3>
+      <ul>
+        <% value[:items].each do |lineitem| %>
+          <li><%= lineitem.item.name %> | <%= lineitem.item.price / 100.0 %></li>
+        <% end %>
+      </ul>
+  <% end %>
+</body>

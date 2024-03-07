@@ -13,16 +13,15 @@ body{
   font-weight: 200;
 }
 
-.card_wrap{
-  display: flex;
-  flex-direction: wrap;
-  width: 100%;
-}
+// .card_wrap{
+//   display: flex;
+//   flex-direction: wrap;
+//   width: 100%;
+// }
 
 .left_div{
-  flex: 4;
   background-color: #284A35;
-  margin-right: 30px;
+  width: 700px;
 }
 
 #grocery_items{
@@ -34,9 +33,9 @@ body{
   text-align: left;
 }
 
-.right{
-  flex: 6;
+.right_div{
   background-color: #284A35;
+  width: 700px;
 }
 
 .list_bar{
@@ -49,17 +48,23 @@ body{
   font-weight: 200;
 }
 
-.cube{
-  margin: 5px;
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px black solid;
-  background-color: white;
-}
+// .cube{
+//   margin: 5px;
+//   padding: 5px;
+//   border-radius: 3px;
+//   border: 1px black solid;
+//   background-color: white;
+// }
 
-.container{
-  column-count: 2;
-  column-gap: 50px;
+// .container{
+//   column-count: 2;
+//   column-gap: 50px;
+// }
+
+.display{
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
 }
 
 .button{
