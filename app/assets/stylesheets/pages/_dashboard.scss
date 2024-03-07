@@ -2,7 +2,7 @@
 // dashboard circles, background, savings and initial dispaly
 .dashboard_background{
   background-color: #14AE5C;
-  height: 650px;
+  height: 85vh;
 }
 
 .main_div{
@@ -28,16 +28,16 @@
   position: absolute;
   top: 24%;
   left: 22%;
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
 }
 
 #monthly {
   position: absolute;
   top: 28%;
   left: 40%;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
 }
 
 #yearly {
@@ -55,8 +55,9 @@
 .product_lists{
   display: flex;
   border: transparent;
-  height: 170px;
+  height: 40%;
   width: 260px;
+  max-width: 100%;
   margin-bottom: 20px;
   padding-top: 10px;
   padding-left: 7px;
@@ -65,4 +66,5 @@
   background-color: #BBE2AE;
   justify-content: left;
   margin-left: auto;
+  overflow-x: auto;
 }
