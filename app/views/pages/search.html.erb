@@ -15,47 +15,43 @@
     <% end %>
   </div>
 
-<div class="container">
-  <%# left div works fine %>
-  <div class="card_wrap">
-    <div class="left_div">
-      <% @items.each do |item|  %>
-      <div class="left_div" id="grocery_items">
-        <p>
-          <%= image_tag item.photo, height: 120, width: 120, crop: :fill %>
-          <%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %>
-        </p>
-        <div class="button">
-          <%= button_to 'Add to list', add_item_line_item_path(item), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-
-  <%# grocery items %>
-  <div class="right_div">
-    <div class="list_bar">
-      <h1 class="header">Grocery List</h1>
-        <div class="columns is-centered">
-          <div class="grocery-cards">
-            <% @line_items.each do |line| %>
-            <p>
-              <%= image_tag line.item.photo, height: 96, width: 120, crop: :fill %>
-              <%= line.item.name %> | <%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %>
-            </p>
-            <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
-              <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
-              <%= f.submit %>
-            <div class="button">
-              <%= button_to 'Remove', line_item_path(line), class: "btn btn-outline-danger", method: :delete, style: "border-radius: 20px;" %>
+    <div class="container">
+        <%# left div works fine %>
+        <div class="card_wrap">
+          <div class="left_div">
+            <% @items.each do |item|  %>
+            <div class="left_div" id="grocery_items">
+              <p>
+                <%= image_tag item.photo, height: 120, width: 120, crop: :fill %>
+                <%= item.name %> | <%= number_to_currency(item.price, unit: '$', format: '%u%n') %>
+              </p>
+              <div class="button">
+                <%= button_to 'Add to list', add_item_line_item_path(item), class: "btn btn-outline-primary", method: :post, style: "border-radius: 20px;" %>
+              </div>
             </div>
-            <% end %>
             <% end %>
           </div>
         </div>
-      </div>
+
+      <%# grocery items %>
+        <div class="right_div">
+          <div class="list_bar">
+            <h1 class="header">Grocery List</h1>
+              <% @line_items.each do |line| %>
+              <p>
+                <%= image_tag line.item.photo, height: 96, width: 120, crop: :fill %>
+                <%= line.item.name %> | <%= number_to_currency(line.item.price, unit: '$', format: '%u%n') %> | <%= line.quantity %>
+              </p>
+
+                <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
+                <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
+                <%= f.submit %>
+                <% end %>
+              <div class="button">
+                <%= button_to 'Remove', line_item_path(line), class: "btn btn-outline-danger", method: :delete, style: "border-radius: 20px;" %>
+              </div>
+                <% end %>
+            </div>
+          </div>
     </div>
-  </div>
-  </div>
 </body>
