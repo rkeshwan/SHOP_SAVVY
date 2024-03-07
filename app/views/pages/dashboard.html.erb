@@ -28,7 +28,9 @@
           <ul>
             <button class="dash_btn">
               <%= link_to "shopping list", search_path %> </button>
-            <p>Your Grocers</p>
+              <% @store_hash.each do |grocery_store, _info| %>
+              <li><%= grocery_store %></li>
+            <% end %>
           </ul>
         </div>
 
