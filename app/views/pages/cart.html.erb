@@ -4,13 +4,21 @@
     <h1>Your shopping carts</h1>
   </div>
 
-  <% @store_hash.each do |store, value| %>
+  <div class="stores-container">
+    <% @store_hash.each do |store, value| %>
+    <div class="store">
+    <div class="header">
       <h2><%= store %></h2>
-      <h3>Total Price: <%= value[:totalprice] %></h3>
-      <ul>
-        <% value[:items].each do |lineitem| %>
-          <li><%= lineitem.item.name %> | <%= lineitem.item.price / 100.0 %></li>
-        <% end %>
-      </ul>
-  <% end %>
-</body>
+      <div class="price"><h3>Cart: $<%= value[:totalprice] %></h3></div>
+      </div>
+      <% value[:items].each do |lineitem| %>
+      <div class="item">
+        <div class="line"><%= lineitem.item.name %></div> <div class="line-price">$<%= lineitem.item.price / 100.0 %></div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <div class="total">
+    <h3>Cart total</h1></div>
+  </body>

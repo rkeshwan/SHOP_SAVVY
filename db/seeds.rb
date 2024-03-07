@@ -55,8 +55,9 @@ puts "Creating grocery lists"
 User.all.each do |user|
   # Default grocery list - this will exist for the user when they log in to test it
   list = GroceryList.create!(user: user)
-  Item.where("id % 10 = 0").offset(4).limit(5).shuffle.each do |line_item|
+  Item.where("id % 7 = 0").offset(7).limit(5).shuffle.each do |line_item|
     puts "Creating 1 line item"
     LineItem.create!(quantity: 1, item: line_item, grocery_list: list)
+    list.save!
   end
 end
