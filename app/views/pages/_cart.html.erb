@@ -1,0 +1,9 @@
+<% store_hash.each do |store, value| %>
+  <div class="store">
+      <%= store %>
+      <% value[:items].each do |lineitem| %>
+        <%= lineitem.item.name %>
+      <%= value[:totalprice] %>
+    <% end %>
+  </div>
+<% end %>

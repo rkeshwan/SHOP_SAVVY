@@ -27,23 +27,20 @@
         <div class="product_lists" id="grocer_list">
           <ul>
             <button class="dash_btn">
-              <%= link_to "shopping list", search_path(@searchd) %> </button>
-            <p>Your Grocers</p>
-            <p> </p>
-            <p></p>
-            <p></p>
+              <%= link_to "shopping list", search_path %> </button>
+              <% @store_hash.each do |grocery_store, _info| %>
+              <li><%= grocery_store %></li>
+            <% end %>
           </ul>
         </div>
 
         <div class="product_lists" id="favourite_list">
           <ul>
             <button class="dash_btn" id="dash_grocer" >
-            <%= link_to "shopping list", search_path(@searchd) %> </button>
-            <p>Your Favourite Products</p>
+            <%= link_to "shopping cart", cart_path %> </button>
+             <%= render partial: 'cart', locals: { store_hash: @store_hash } %>
           </ul>
-        </div>z
+        </div>
     </div>
   </div>
-
-
 </div>
