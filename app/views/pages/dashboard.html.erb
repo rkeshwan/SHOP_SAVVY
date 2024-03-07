@@ -23,49 +23,28 @@
       </div>
     </div>
 
-    <%# line 30 needs to be fixed so it goes to an actual groceries page or able to edit %>
-    <div class="product_lists" id="grocer_list">
-      <ul>
-        <button class="dash_btn">
-          <%= link_to "shopping list", search_path(@searchd) %> </button>
-        <p>Your Grocers</p>
-        <p> </p>
-        <p></p>
-        <p></p>
-      </ul>
+
+<%# line 30 needs to be fixed so it goes to an actual groceries page or able to edit %>
+        <div class="product_lists" id="grocer_list">
+          <ul>
+            <button class="dash_btn">
+              <%= link_to "shopping list", search_path %> </button>
+              <% @store_hash.each do |grocery_store, _info| %>
+              <li><%= grocery_store %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="product_lists" id="favourite_list">
+          <ul>
+            <button class="dash_btn" id="dash_grocer" >
+            <%= link_to "shopping cart", cart_path %> </button>
+             <%= render partial: 'cart', locals: { store_hash: @store_hash } %>
+          </ul>
+        </div>
+
     </div>
 
-    <div class="product_lists" id="favourite_list">
-      <ul>
-        <button class="dash_btn" id="dash_grocer">
-          <%= link_to "shopping list", search_path(@searchd) %> </button>
-        <p>Your Favourite Products</p>
-      </ul>
-    </div>z
+    </div>
   </div>
-</div>
 
-<%# Calculate savings %>
-
-
-</div>
-#check if there's a highest price and minus our selected items price & accumulate this for all products
-& check if there's a lowest
-if the
-
-# iterate over line items in grocery
-# find the same item names in the items list
-# group by item name - then find the highest price
-# highest - grocerylist.name.price
-puts "Creating grocery lists"
-User.all.each do |user|
-  # Default grocery list - this will exist for the user when they log in to test it
-  list = GroceryList.create!(user: user)
-  Item.where("id % 7 = 0").offset(7).limit(5).shuffle.each do |line_item|
-    puts "Creating 1 line item"
-    LineItem.create!(quantity: 1, item: line_item, grocery_list: list)
-    list.save!
-  end
-end
-
-gthe iteration gets sent to a varaible - this variable increments

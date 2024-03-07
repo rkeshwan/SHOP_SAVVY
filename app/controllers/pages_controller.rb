@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
   end
@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+
     #iterate here
     # raise
     @grocery_list = GroceryList.find_by(user: current_user)
@@ -46,32 +47,39 @@ class PagesController < ApplicationController
     # as a result counter variable should total full savings
     end
     # @counter goes on the view page
+  
+
+
+    @store_hash = cart
+    @grocery_store = @store_hash.keys.first
   end
+
+  def cart_page
+    @store_hash = cart
+    render :cart
+  end
+
+  private
 
 
   def cart
     @grocery_list = GroceryList.find_by(user: current_user)
     @line_items = @grocery_list.line_items
     @store_hash = {}
-    # {
-    #   "coles": {
-    #     totalprice: 1,
-    #     items: []
-    #   }
-    # }
+
     @line_items.each do |line|
       key = line.item.stores.first.name
       if @store_hash[key]
-        @store_hash[key][:totalprice] += (line.item.price * line.quantity) /100.0
+        @store_hash[key][:totalprice] += (line.item.price * line.quantity) / 100.0
         @store_hash[key][:items] << line
       else
         @store_hash[key] = {
-          totalprice: (line.item.price * line.quantity) /100.0,
+          totalprice: (line.item.price * line.quantity) / 100.0,
           items: [line]
         }
-        # @store_hash[key][:totalprice] = (line.item.price * line.quantity) /100.0
-        # @store_hash[key][:item] = [line]
       end
     end
+
+    @store_hash
   end
 end
