@@ -74,12 +74,16 @@ class PagesController < ApplicationController
     render :cart
   end
 
+  def store
+  end
+
   private
 
   def cart
     @grocery_list = GroceryList.find_by(user: current_user)
     @line_items = @grocery_list.line_items
     @store_hash = {}
+    @total_price = 0
 
     @line_items.each do |line|
       key = line.item.stores.first.name
@@ -93,6 +97,12 @@ class PagesController < ApplicationController
         }
       end
     end
+
+    @store_hash.each do |_store, value|
+      @total_price += value[:totalprice]
+    end
+
     @store_hash
   end
+
 end
