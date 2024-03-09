@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     if params[:query].present?
       @items = Item.search_by_name_and_category(params[:query])
     else
-      @items = Item.where("id % 7 = 0").offset(4).limit(5).shuffle
+      @items = Item.where("id % 17 = 0").offset(4).limit(25).shuffle
     end
 
     @line_items = GroceryList.find_by(user: current_user).line_items
