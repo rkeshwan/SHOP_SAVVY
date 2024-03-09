@@ -22,11 +22,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Dashboard", dashboard_path(@dashboard), class: "nav-link" %>
-            </li>
             <li class="nav-item">
+              <%= link_to "Dashboard", dashboard_path(@dashboard), class: "nav-link" %>
               <%= link_to "Cart", cart_path(@cart), class: "nav-link" %>
+              <%= link_to "Search", search_path(@search), class: "nav-link" %>
+              <%= link_to "Store", store_path(@store), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
