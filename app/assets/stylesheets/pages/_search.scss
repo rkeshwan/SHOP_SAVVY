@@ -13,32 +13,46 @@ body{
   font-weight: 200;
 }
 
-// .card_wrap{
-//   display: flex;
-//   flex-direction: wrap;
-//   width: 100%;
-// }
+.card_wrap{
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
 .left_div{
   background-color: #284A35;
-  width: 700px;
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#grocery_items{
+#grocery_items.items{
+  max-height: flex;
+  width: 180px;
   margin: 8px;
   padding: 5px;
   border-radius: 7px;
   background-color: white;
   border: 0.5px black solid;
-  text-align: left;
+  text-align: center;
 }
 
 .right_div{
   background-color: #284A35;
-  width: 700px;
+  width: 650px;
+}
+
+.line_item{
+  background-color: white;
+  display: flex;
+  // flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .list_bar{
+  display: flex;
+  flex-wrap: nowrap;
   background-color: #76a566;
   color: black;
   border: transparent;
@@ -48,25 +62,15 @@ body{
   font-weight: 200;
 }
 
-// .cube{
-//   margin: 5px;
-//   padding: 5px;
-//   border-radius: 3px;
-//   border: 1px black solid;
-//   background-color: white;
-// }
 
-// .container{
-//   column-count: 2;
-//   column-gap: 50px;
-// }
 
 .display{
   display: flex;
-  justify-content: space-around;
-  gap: 50px;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .button{
-  text-align: center
+  text-align: center;
+  position: end;
 }
