@@ -1,8 +1,3 @@
-body{
-  max-height: 100vh;
-  overflow: hidden;
-}
-
 .main {
   position: absolute;
   top: 10%;
@@ -17,9 +12,8 @@ body{
   overflow-y: auto;
 }
 
-
 .savings {
-  position: sticky;
+  position: fixed;
   text-align: center;
 }
 
@@ -45,8 +39,8 @@ body{
 }
 
 #yearly {
-  bottom: 17%;
-  left: 30%;
+  bottom: 8%;
+  left: 37%;
   padding: 80px;
   width: 240px;
   height: 240px;
@@ -101,11 +95,14 @@ body{
 #grocer_list {
   position: fixed;
   top: 14%;
-  max-height: 30%;
+  max-height: 18%;
   right: 45px;
+  overflow: auto;
 }
 
 #favourite_list{
   position: fixed;
   top: 35%;
+  max-height: 60%;
+  overflow: auto;
 }
