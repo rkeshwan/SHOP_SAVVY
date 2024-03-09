@@ -1,39 +1,43 @@
 body{
   max-height: 100vh;
+  overflow: hidden;
 }
 
-.main{
+.main {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 97%;
+  height: 87%;
+  max-height: 90vh;
   background-color: #14AE5C;
   padding: 20px;
-  margin-left: 15px;
-  margin-top: 15px;
   border-radius: 4px;
+  overflow-y: auto;
 }
+
 
 .savings {
   position: sticky;
-  justify-content: space-around;
-  align-items: center;
   text-align: center;
-  border: transparent;
 }
 
 #weekly, #monthly, #yearly {
-  margin: 20px;
   border-radius: 50%;
   background-color: #BBE2AE;
 }
 
 #weekly {
-  top: 24%;
-  left: 21%;
+  top: 23%;
+  left: 26%;
   width: 170px;
   height: 170px;
   padding-top: 55px;
 }
 
 #monthly {
-  top: 28%;
+  top: 5%;
   left: 43%;
   width: 200px;
   height: 200px;
@@ -41,8 +45,8 @@ body{
 }
 
 #yearly {
-  bottom: 22%;
-  left: 33%;
+  bottom: 17%;
+  left: 30%;
   padding: 80px;
   width: 240px;
   height: 240px;
@@ -51,7 +55,7 @@ body{
 
 @media (max-width: 768px) {
   #weekly {
-    top: 50%;
+    top: 5%;
     left: 10%;
     transform: translate(-50%, -50%);
   }
@@ -63,24 +67,24 @@ body{
   }
 
   #yearly {
-    bottom: 10%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
   }
 }
 
-// savings list and items put into sexy box
-
-.savings_list{
-  border-radius: 3px;
+.savings_list {
+  position: fixed;
+  bottom: 4%;
+  left: 12%;
+  transform: translateX(-50%);
+  border-radius: 6px;
   margin: 8px;
   padding: 10px;
   background-color: #BBE2AE;
-  max-width: fit-content;
+  max-width: 90%;
+  overflow: auto;
 }
-
-
-
 
 // Grocery and favourite lists on dashboard
 .product_lists{
@@ -96,7 +100,7 @@ body{
 
 #grocer_list {
   position: fixed;
-  top: 10%;
+  top: 14%;
   max-height: 30%;
   right: 45px;
 }
