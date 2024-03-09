@@ -1,9 +1,17 @@
-<% store_hash.each do |store, value| %>
-  <div class="store">
+<% rendered_items = Set.new %>
+<% store_hash.each_with_index do |(store, value), index| %>
+  <% if index < 4 %>
+  <li> <div class="store">
       <%= store %>
       <% value[:items].each do |lineitem| %>
-        <%= lineitem.item.name %>
-      <%= value[:totalprice] %>
-    <% end %>
-  </div>
+        <% unless rendered_items.include?(lineitem.item.id) %>
+          <%= lineitem.item.name %>
+          <%= value[:totalprice] %>
+          <% rendered_items.add(lineitem.item.id) %>
+        <% end %>
+      <% end %>
+    </div></li>
+  <% else %>
+    <% break %>
+  <% end %>
 <% end %>
