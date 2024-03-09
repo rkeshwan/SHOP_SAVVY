@@ -45,14 +45,16 @@
           <% @line_items.each do |line| %>
           <div class="line-item">
             <%= image_tag line.item.photo_url, height: 96, width: 120, crop: :fill %>
-            <div>
+            <div class="grocery_details">
             <%= line.item.name %> | <%= line.item.stores.first.name %> |
             <%= number_to_currency(line.item.price * line.quantity / 100.0, unit: '$', format: '%u%n') %> | Qty:
             <%= line.quantity %>
+            <div class="qty">
             <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
             <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
             <%= f.submit %>
             <% end %>
+            </div>
             </div>
             <div class="button">
               <%= button_to line_item_path(line), method: :delete, class: "btn btn-outline-danger", style: "border-radius: 20px;" do %>

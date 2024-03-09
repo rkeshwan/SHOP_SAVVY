@@ -13,6 +13,12 @@ body{
   font-weight: 200;
 }
 
+.display{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .card_wrap{
   width: 1000px;
   display: flex;
@@ -39,20 +45,19 @@ body{
 }
 
 .right_div{
-  background-color: #284A35;
-  width: 650px;
-}
-
-.line_item{
-  background-color: white;
   display: flex;
-  // flex-wrap: nowrap;
-  justify-content: space-between;
+  background-color:  #76a566;
+  width: 650px;
+  height: flex;
+  // display: flex;
+  flex-wrap: nowrap;
+  // justify-content: space-evenly;
 }
 
 .list_bar{
-  display: flex;
-  flex-wrap: nowrap;
+  // display: flex;
+  // flex-wrap: nowrap;
+  width: 650px;
   background-color: #76a566;
   color: black;
   border: transparent;
@@ -62,12 +67,20 @@ body{
   font-weight: 200;
 }
 
+.grocery_cards {
+  // display: flex;
+  // flex-wrap: wrap;
+}
 
-
-.display{
-  display: flex;
+.line_item{
+  background-color: white;
+  // display: flex;
+  // flex-wrap: nowrap;
   justify-content: space-between;
-  gap: 10px;
+  display: inline-block; /* or display: inline; */
+  max-height: flex;
+  padding: 5px;
+  border-radius: 7px;
 }
 
 .button{
