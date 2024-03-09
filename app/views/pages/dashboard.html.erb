@@ -1,8 +1,5 @@
 <body>
-  <div class="dashboard_background">
-
-    <%# small message to user with current login %>
-    <%# <div class="main_div"> %>
+  <%# <div class="dashboard_background"> %>
     <div class="main">
       <h1>Hello </h1>
       <p>Welcome back to your Savvy Shopper dashboard</p>
@@ -13,11 +10,13 @@
           <p>$<%= @counter / 100.0 %></p>
           </h5>
         </div>
+
         <div class="savings" id="monthly">
           <h5>Monthly Savings
           <p>$<%= (@counter * 2.5) / 100.0  %></p>
           </h5>
         </div>
+
         <div class="savings" id="yearly">
           <h5>Yearly Savings
           <p>$<%= (@counter * 8) / 100.0  %></p>
@@ -28,14 +27,12 @@
       <div class="savings_list">
         <h3>Latest savings by item</h3>
         <% @item_id_hash.each do |item| %>
-        <p class="savings_item">
-          <%= item[1][:name] %>
+        <p> <%= item[1][:name] %>
           <%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0, unit: '$', format: '%u%n') %>
         </p>
         <% end %>
       </div>
     </div>
-
 
       <div class="product_lists" id="grocer_list">
         <ul>
