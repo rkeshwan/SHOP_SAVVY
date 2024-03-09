@@ -1,17 +1,18 @@
-
-// dashboard circles, background, savings and initial dispaly
-.dashboard_background{
-  background-color: #14AE5C;
-  height: 85vh;
+body{
+  max-height: 100vh;
 }
 
-.main_div{
+.main{
+  background-color: #14AE5C;
   padding: 20px;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 4px;
 }
 
 .savings {
-  display: flex;
-  justify-content: center;
+  position: sticky;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   border: transparent;
@@ -19,52 +20,88 @@
 
 #weekly, #monthly, #yearly {
   margin: 20px;
-  padding: 25px;
   border-radius: 50%;
   background-color: #BBE2AE;
 }
 
 #weekly {
-  position: absolute;
   top: 24%;
-  left: 22%;
+  left: 21%;
   width: 170px;
   height: 170px;
+  padding-top: 55px;
 }
 
 #monthly {
-  position: absolute;
   top: 28%;
-  left: 40%;
+  left: 43%;
   width: 200px;
   height: 200px;
+  padding-top: 74px;
 }
 
 #yearly {
-  position: absolute;
-  bottom: 20%;
-  left: 35%;
-  transform: translateX(-50%);
-  padding: 25px;
+  bottom: 22%;
+  left: 33%;
+  padding: 80px;
   width: 240px;
   height: 240px;
   background-color: #BBE2AE;
 }
 
+@media (max-width: 768px) {
+  #weekly {
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  #monthly {
+    top: 80%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  #yearly {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// savings list and items put into sexy box
+
+.savings_list{
+  border-radius: 3px;
+  margin: 8px;
+  padding: 10px;
+  background-color: #BBE2AE;
+  max-width: fit-content;
+}
+
+
+
+
 // Grocery and favourite lists on dashboard
 .product_lists{
-  display: flex;
   border: transparent;
-  height: 40%;
-  width: 260px;
-  max-width: 100%;
+  justify-content: left;
   margin-bottom: 20px;
   padding-top: 10px;
-  padding-left: 7px;
-  padding-right: 7px;
-  border-radius: 3px;
+  width: 300px;
+  right: 45px;
+  border-radius: 7px;
   background-color: #BBE2AE;
-  justify-content: left;
-  margin-left: auto;
-  overflow-x: auto;
+}
+
+#grocer_list {
+  position: fixed;
+  top: 10%;
+  max-height: 30%;
+  right: 45px;
+}
+
+#favourite_list{
+  position: fixed;
+  top: 35%;
 }
