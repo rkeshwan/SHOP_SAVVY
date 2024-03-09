@@ -75,6 +75,7 @@ class PagesController < ApplicationController
   end
 
   def store
+    @stores = Store.all
   end
 
   private
