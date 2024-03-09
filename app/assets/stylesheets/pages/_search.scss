@@ -48,15 +48,14 @@ body{
   display: flex;
   background-color:  #76a566;
   width: 650px;
-  height: flex;
-  // display: flex;
-  flex-wrap: nowrap;
-  // justify-content: space-evenly;
+  height: fit-content;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .list_bar{
-  // display: flex;
-  // flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: wrap;
   width: 650px;
   background-color: #76a566;
   color: black;
