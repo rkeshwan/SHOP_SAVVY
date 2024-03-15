@@ -1,18 +1,15 @@
-
-.logo{
-  border: transparent;
-  padding-top: 8px;
-  padding-left: 13px;
-  padding-right: 13px;
-  border-radius: 40px;
-  // background-color: #14AE5C;
+.navbar-lewagon .pages {
+  display: flex;
+  gap: 70px;
   color: white;
+  font-size: larger;
 }
 
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
   background-color: #284A35;
+  margin-bottom: 15px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,4 +18,33 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  height: 40px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+  margin-left: 20px; /* Add some space between the image and the text */
+  color: white;
+}
+
+.nav-link {
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: rgba(217, 184, 237, 0.8);
+}
+
+.navbar-collapse {
+  gap: 10px;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
 }
