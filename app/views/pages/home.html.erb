@@ -1,16 +1,29 @@
-<div data-controller="hello">
-
-<div class="blank_div">
-  <div class="logo">
-    <%# <link rel="stylesheet" href="">      placeholder%>
-      <div class="home_canvas">
-        <h1>Have you ever wanted</h1>
-        <p>We offer exclusive knowledge on</p>
-          <button type="button" class="return_btn" id="dash_btn_spacing" >
-            <%= link_to "Get Started", dashboard_path(@dashboard) %>
-          </button>
-      </div>
+<div class="banner">
+  <div class="home_canvas">
+    <div class="container">
+      <h1>Everyday savings, simplified</h1>
+      <p class="intro">Tired of hopping between stores to find the best grocery deals?
+        <br>
+        Say goodbye to the hassle and hello to convenience!
+        <br>
+        We're your one-stop destination for comparing prices from your favourite stores, saving you time, money,
+        and unnecessary stress.
+      </p>
+      <button type="button" class="return_btn" id="dash_btn_spacing">
+        <%= link_to "Sign Up", new_user_registration_path %>
+      </button>
+    </div>
   </div>
 </div>
 
-<%# add image inside on line  6%>
+<h3 class="footer_title">Partners</h3>
+<div class="footer">
+  <div class="stores">
+    <div class="store1"><a href="#"></a></div>
+    <div class="store2"></div>
+    <div class="store3"></div>
+    <div class="store4"></div>
+    <div class="store5"></div>
+    <div class="store6"></div>
+  </div>
+</div>
