@@ -27,6 +27,11 @@
     box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.20), 0px 6px 7px 0px rgba(0, 0, 0, 0.14), 0px 3px 12px 0px rgba(0, 0, 0, 0.12);
   }
 
+  .return_btn a{
+    text-decoration: none;
+    color: #fff;
+  }
+
   .dash_btn {
     font-size: small;
     transition-delay: 2s;
@@ -44,3 +49,25 @@
   #dash_grocer {
     position: right;
   }
+
+
+.login .btn {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  height: 38px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  min-width: 660px;
+  text-align: center;
+  background-image: linear-gradient(180deg,#66BB6A, #43A047);
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.20), 0px 6px 7px 0px rgba(0, 0, 0, 0.14), 0px 3px 12px 0px rgba(0, 0, 0, 0.12);
+  transition: all .2s ease-out;
+  :hover{
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.20), 0px 6px 7px 0px rgba(0, 0, 0, 0.14), 0px 3px 12px 0px rgba(0, 0, 0, 0.12);
+  }
+}
