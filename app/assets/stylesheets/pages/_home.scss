@@ -1,47 +1,91 @@
-// Specific CSS for your home-page
-a:link {
-  text-decoration: none;
-}
-
-a:hover {
-  color: darkgreen;
-}
-
-.blank_div {
-  padding-left: 30px;
-}
-
 .home_canvas {
-  padding-left: 40px;
-  padding-top: 100px;
-  background-color: orange;
-  border-radius: 3px;
-  height: 600px;
+  background-image: url("home.jpeg");
+  width: 100%;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  height: inherit;
+  background-position: right, 20px;
+  background-color: white;
+  padding: 120px 0;
+  background-size: contain;
+  height: 750px;
+  position: relative;
 }
 
-.return_btn {
-  transition-delay: 2s;
-  border: transparent;
-  border-radius: 3px;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  margin: 50px auto;
+  position: absolute;
+  /* Position the container absolutely within the home_canvas */
+  left: 8%;
+  /* Align the container to the left side of the home_canvas */
+  top: 35%;
+  /* Adjust the top position as needed */
+  transform: translateY(-50%);
 }
 
+.intro {
+  width: 420px;
+  text-align: justify;
+}
+
+.footer_title {
+  padding: 20px;
+  text-align: center;
+  color: rgb(240, 232, 232);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.stores {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.store1, .store2, .store3, .store4, .store5, .store6 {
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 150px;
+  width: 230px;
+}
+
+.store1 {
+  background-image: url("blissfoods.jpeg");
+}
+
+.store2 {
+  background-image: url("aldi.jpeg");
+}
+
+.store3 {
+  background-image: url("citymart.png");
+}
+
+.store4 {
+  background-image: url("ww.jpeg");
+}
+
+.store5 {
+  background-image: url("organic.png");
+}
+
+.store6 {
+  background-image: url("coles.png");
+}
 
 // Buttons
-
-.dash_btn{
-  font-size: small;
-  transition-delay: 2s;
-  border: 2px solid white;
-  border-radius: 3px;
-  background-color: transparent;
-  overflow: hidden;
-}
-
-#dash_btn_spacing{
-  margin-top: 115px;
-  margin-left: 30px;
-}
-
-#dash_grocer{
-  position: right;
+a {
+  text-decoration: none;
+  color: #fff;
 }
