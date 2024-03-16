@@ -51,6 +51,25 @@
 </p>
 <% end %>
 </div>
+
+<div class="saving_list_monthly">
+<h3>Monthly savings by item</h3>
+<% @item_id_hash.each do |item| %>
+<p> <%= item[1][:name] %>
+<%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0 * 2.5, unit: '$', format: '%u%n') %>
+</p>
+<% end %>
+</div>
+
+<div class="saving_list_yearly">
+<h3>Monthly savings by item</h3>
+<% @item_id_hash.each do |item| %>
+<p> <%= item[1][:name] %>
+<%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0 * 8, unit: '$', format: '%u%n') %>
+</p>
+<% end %>
+</div>
+
 </div>
 
 </div>
