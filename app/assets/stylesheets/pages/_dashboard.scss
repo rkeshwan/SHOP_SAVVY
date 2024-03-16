@@ -10,67 +10,68 @@
   padding: 20px;
   border-radius: 4px;
   overflow-y: auto;
-}
+  }
 
-.savings {
+  .savings {
   position: fixed;
   text-align: center;
-}
+  }
 
-#weekly, #monthly, #yearly {
-  border-radius: 50%;
+  #weekly, #monthly, #yearly {
+  border-radius: 20%;
   background-color: #BBE2AE;
-}
+  }
 
-#weekly {
-  top: 23%;
-  left: 26%;
+  #weekly {
+  top: 35%;
+  left: 20px;
   width: 170px;
   height: 170px;
   padding-top: 55px;
-}
+  }
 
-#monthly {
-  top: 5%;
-  left: 43%;
+  #monthly {
+  top: 35%;
+  left: 240px;
   width: 200px;
   height: 200px;
   padding-top: 74px;
-}
+  }
 
-#yearly {
-  bottom: 8%;
-  left: 37%;
+  #yearly {
+  top: 35%;
+  left: 500px;
   padding: 80px;
   width: 240px;
   height: 240px;
   background-color: #BBE2AE;
-}
+  }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   #weekly {
-    top: 5%;
-    left: 10%;
-    transform: translate(-50%, -50%);
+  top: 5%;
+  left: 10%;
+  transform: translate(-50%, -50%);
   }
 
   #monthly {
-    top: 80%;
-    left: 10%;
-    transform: translate(-50%, -50%);
+  top: 80%;
+  left: 10%;
+  transform: translate(-50%, -50%);
   }
 
   #yearly {
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
   }
-}
+  }
 
-.savings_list {
+  .savings_list {
   position: fixed;
-  bottom: 4%;
-  left: 15%;
+  // bottom: 4%;
+  top: 35%;
+  right: -15%;
   transform: translateX(-50%);
   border-radius: 6px;
   margin: 8px;
@@ -78,10 +79,10 @@
   background-color: #BBE2AE;
   max-width: 90%;
   overflow: auto;
-}
+  }
 
-// Grocery and favourite lists on dashboard
-.product_lists{
+  // Grocery and favourite lists on dashboard
+  .product_lists{
   border: transparent;
   justify-content: left;
   margin-bottom: 20px;
@@ -90,19 +91,19 @@
   right: 45px;
   border-radius: 7px;
   background-color: #BBE2AE;
-}
+  }
 
-#grocer_list {
+  #grocer_list {
   position: fixed;
   top: 14%;
   max-height: 18%;
   right: 45px;
   overflow: auto;
-}
+  }
 
-#favourite_list{
+  #favourite_list{
   position: fixed;
   top: 35%;
   max-height: 60%;
   overflow: auto;
-}
+  }
