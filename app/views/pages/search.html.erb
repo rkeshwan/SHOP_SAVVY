@@ -50,27 +50,12 @@
             <%= line.item.name %> | <%= line.item.stores.first.name %> |
             <%= number_to_currency(line.item.price * line.quantity / 100.0, unit: '$', format: '%u%n') %> | Qty:
             <%= line.quantity %>
-
             <div class="qty">
-            <%# <%= #form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %> %>
-            <%# <%=# f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %> %>
-            <%# <%= #f.submit %> %>
-            <%# <% #end %> %>
-             <div class="quantity-selector">
-            <%= form_for(line, url: adjust_item_line_item_path(line),method: :patch) do |f| %>
-                <%= f.number_field :quantity, class: 'form-control', in: 1..10, data: { item_price: line.item.price } %>
-            <div class="quantity-buttons">
-                  <%= button_tag(type: 'button', class: 'btn btn-sm btn-secondary', onclick: "decrementQuantity(this)") do %>
-                    <i class="fas fa-minus"></i>
-                  <% end %>
-                  <%= button_tag(type: 'button', class: 'btn btn-sm btn-secondary', onclick: "incrementQuantity(this)") do %>
-                    <i class="fas fa-plus"></i>
-                  <% end %>
-                </div>
+            <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
+            <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id } %>
+            <%= f.submit %>
             <% end %>
             </div>
-            </div>
-
             </div>
             <div class="button">
               <%= button_to line_item_path(line), method: :delete, class: "btn btn-outline-danger", style: "border-radius: 20px;" do %>
@@ -84,6 +69,5 @@
       <%= link_to "Go to Cart", cart_path, method: :post, class: "btn btn-success", style: "border-radius: 20px;" %>
       </div>
     </div>
-  <%# </div> %>
-
+  </div>
 </body>
