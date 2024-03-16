@@ -1,6 +1,19 @@
 <body>
+  <div class="product_bar">
   <h1>Store List</h1>
+  </div>
+
+  <div class="store-cards">
   <% @stores.each do |store| %>
-  <h3><%= store.name %> | <%= store.address %></h3>
+  <div class="store-card">
+  <%= image_tag "#{store.name}.png", style: "width: 200px; height: 200px; border-radius: 100px"%>
+  <div class="store-name">
+  <h3><%= store.name %></h3>
+  </div>
+  <div class="store-address">
+  <h3><%= store.address %></h3>
+  </div>
+  </div>
   <% end %>
+  </div>
 </body>
