@@ -105,5 +105,4 @@ class PagesController < ApplicationController
 
     @store_hash
   end
-
 end
