@@ -9,11 +9,11 @@
     <div class="store">
     <div class="header">
       <h2><%= store %></h2>
-      <div class="price"><h3>Cart: $<%= value[:totalprice] %></h3></div>
+      <div class="price"><h3>Cart: <%= number_to_currency(value[:totalprice], unit: '$', format: '%u%n') %></h3></div>
       </div>
       <% value[:items].each do |lineitem| %>
       <div class="item">
-        <div class="line"><%= lineitem.item.name %></div> <div class="line-price">$<%= lineitem.item.price / 100.0 %></div>
+        <div class="line"><%= lineitem.item.name %></div> <div class="line-price"><%= lineitem.quantity %></div> <div class="line-price">$<%= (lineitem.item.price * lineitem.quantity) / 100.0 %></div>
       </div>
       <% end %>
     </div>
@@ -22,7 +22,7 @@
 
   <div class="total">
     <h1>Cart Total</h1>
-    <h1>$<%= @total_price %></h1>
+    <h1><%= number_to_currency(@total_price, unit: '$', format: '%u%n') %></h1>
   </div>
 
 </body>
