@@ -6,14 +6,16 @@
   <div class="store-cards">
   <% @stores.each do |store| %>
   <div class="store-card">
-  <%= image_tag "#{store.name}.png", style: "width: 200px; height: 200px; border-radius: 100px"%>
-  <div class="store-name">
-  <h3><%= store.name %></h3>
-  </div>
-  <div class="store-address">
-  <h3><%= store.address %></h3>
-  </div>
+    <%= image_tag "#{store.name}.png", style: "width: 200px; height: 200px; border-radius: 100px"%>
+    <div class="store-info">
+      <div class="store-name">
+        <%= store.name %>
+      </div>
+      <div class="store-address">
+        <%= store.address %>
+      </div>
+    </div>
   </div>
   <% end %>
-  </div>
+</div>
 </body>
