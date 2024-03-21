@@ -77,24 +77,23 @@
   justify-content: left;
   margin-bottom: 20px;
   padding-top: 10px;
-  width: 300px;
+  width: 600px;
   right: 45px;
   border-radius: 7px;
   background-color: #BBE2AE;
 }
 
-#grocer_list {
-  position: fixed;
-  top: 14%;
-  max-height: 18%;
-  right: 45px;
+  #grocer_list {
+  margin-top: 30px;
+  // max-height: 18%;
+  // right: 45px;
   overflow: auto;
 }
 
-#favourite_list {
-  position: fixed;
-  top: 35%;
-  max-height: 60%;
+  #favourite_list{
+  margin-top: 30px;
+  // right: 45px;
+  // max-height: 60%;
   overflow: auto;
 }
 
