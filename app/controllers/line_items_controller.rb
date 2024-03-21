@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
 
   def add_item
     @grocery_list = current_user.grocery_list # user's grocery list
@@ -10,8 +11,14 @@ class LineItemsController < ApplicationController
 
   def adjust_item
     @line_item = LineItem.find(params[:id])
-    @line_item.update(line_item_params)
-    @line_item.save
+    if @line_item.update(line_item_params)
+      # Broadcast Turbo Stream to update DOM
+      html = render_to_string(template: 'pages/search', locals: { line_item: @line_item })
+      turbo_stream.append(:quantity_updates, html: html)
+      head :ok
+    else
+      render status: :unprocessable_entity
+    end
   end
 
   def destroy
