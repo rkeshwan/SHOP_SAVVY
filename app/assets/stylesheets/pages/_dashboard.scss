@@ -36,7 +36,6 @@
 
 #weekly, #monthly, #yearly {
   border-radius: 20px;
-  background-color: #c6d3f5;
   top: 35%;
   left: 20px;
   width: 100%;
@@ -44,6 +43,7 @@
   display: block;
   padding: 35px;
   font-size: large;
+  box-shadow: rgba(61, 61, 219, 0.2) 0px 7px 29px 0px;
 }
 
 .list{
@@ -66,7 +66,6 @@
   grid-template-columns: 3fr 1fr;
   row-gap: 15px;
   column-gap: 50px;
-  // padding-left: 30px;
   max-height: 90%;
   overflow: auto;
 }
@@ -85,15 +84,11 @@
 
   #grocer_list {
   margin-top: 30px;
-  // max-height: 18%;
-  // right: 45px;
   overflow: auto;
 }
 
   #favourite_list{
   margin-top: 30px;
-  // right: 45px;
-  // max-height: 60%;
   overflow: auto;
 }
 
