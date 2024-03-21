@@ -1,98 +1,118 @@
 <body>
   <%# <div class="dashboard_background"> %>
-    <div class="main">
-      <h1>Hello </h1>
-      <p>Welcome back to your Savvy Shopper dashboard</p>
+  <div class="main">
+    <h1>Hello </h1>
+    <p>Welcome back to your Savvy Shopper dashboard</p>
 
-<nav>
-<div class="nav nav-tabs" id="nav-tab" role="tablist">
-<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Saving</button>
-<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Shopping List</button>
-</div>
-</nav>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true">Saving</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false">Shopping List</button>
+      </div>
+    </nav>
 
-<div class="tab-content" id="nav-tabContent">
-<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-<div class="savings">
-<div class="savings" id="weekly">
-<h5>Latest savings</h5>
-<p><%= number_to_currency(@counter / 100.0, unit: '$', format: '%u%n') %></p>
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
-</svg>
-</div>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <div class="bubbles">
+          <div class="savings_bubbles">
 
-<div class="savings" id="monthly">
-<h5>Monthly Savings
-<p><%= number_to_currency((@counter * 2.5) / 100.0, unit: '$', format: '%u%n') %></p>
-</h5>
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
-</svg>
+            <button class="dash" data-controller="toggle" data-action="click->toggle#toggle_weekly">
+              <div class="savings_bubbles" id="weekly">
+                <h4>Latest savings</h4>
+                <p><%= number_to_currency(@counter / 100.0, unit: '$', format: '%u%n') %></p>
+                <%# <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+              </svg> %>
+              </div>
+            </button>
 
-</div>
+            <button class="dash" data-controller="toggle" data-action="click->toggle#toggle_monthly">
+              <div class="savings_bubbles" id="monthly">
+                <h4>Monthly Savings </h4>
+                <p><%= number_to_currency((@counter * 2.5) / 100.0, unit: '$', format: '%u%n') %></p>
+                <%# <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                </svg> %>
+              </div>
+            </button>
 
-<div class="savings" id="yearly">
-<h5>Yearly Savings
-<p><%=number_to_currency((@counter * 8) / 100.0, unit: '$', format: '%u%n') %></p>
-</h5>
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
-</svg>
-</div>
-</div>
+            <button class="dash" data-controller="toggle" data-action="click->toggle#toggle_yearly">
+              <div class="savings_bubbles" id="yearly">
+                <h4>Yearly Savings </h4>
+                <p><%=number_to_currency((@counter * 8) / 100.0, unit: '$', format: '%u%n') %></p>
+                <%# <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                </svg> %>
+              </div>
+          </div>
+          </button>
+        </div>
+
+        <div class="list">
+          <div class="savings_list_weekly">
+            <h3 class="list_title">Latest savings by item</h3>
+            <div class="savings_list_weekly_items">
+              <% @item_id_hash.each do |item| %>
+              <div class="item_name"> <%= item[1][:name] %> </div>
+              <div class="weekly_saving">
+                <%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0, unit: '$', format: '%u%n') %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div data-toggle-target="toggleable" class="savings_list_monthly hidden">
+            <h3 class="list_title">Monthly savings by item</h3>
+            <div class="savings_list_monthly_items">
+              <% @item_id_hash.each do |item| %>
+              <div class="item_name"> <%= item[1][:name] %> </div>
+              <%= number_to_currency( ((item[1][:price] * item[1][:quantity]) * 2.5) / 100.0 , unit: '$', format: '%u%n') %>
+              <% end %>
+            </div>
+          </div>
+
+          <div data-toggle-target="toggleable" class="savings_list_yearly hidden">
+            <h3 class="list_title">Annual savings by item</h3>
+            <div class="savings_list_yearly_items">
+              <% @item_id_hash.each do |item| %>
+              <div class="item_name"> <%= item[1][:name] %> </div>
+              <%= number_to_currency( ((item[1][:price] * item[1][:quantity]) * 8) / 100.0 , unit: '$', format: '%u%n') %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
-<div class="savings_list">
-<h3>Latest savings by item</h3>
-<% @item_id_hash.each do |item| %>
-<p> <%= item[1][:name] %>
-<%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0, unit: '$', format: '%u%n') %>
-</p>
-<% end %>
-</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
 
-<div class="saving_list_monthly">
-<h3>Monthly savings by item</h3>
-<% @item_id_hash.each do |item| %>
-<p> <%= item[1][:name] %>
-<%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0 * 2.5, unit: '$', format: '%u%n') %>
-</p>
-<% end %>
-</div>
+    <div class="product_lists" id="grocer_list">
+      <ul>
+        <button class="dash_btn">
+          <%= link_to "shopping list", search_path %> </button>
+        <% @store_hash.each do |grocery_store, _info| %>
+        <li><%= grocery_store %></li>
+        <% end %>
+      </ul>
+    </div>
 
-<div class="saving_list_yearly">
-<h3>Monthly savings by item</h3>
-<% @item_id_hash.each do |item| %>
-<p> <%= item[1][:name] %>
-<%= number_to_currency( (item[1][:price] * item[1][:quantity]) / 100.0 * 8, unit: '$', format: '%u%n') %>
-</p>
-<% end %>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-
-<div class="product_lists" id="grocer_list">
-<ul>
-<button class="dash_btn">
-<%= link_to "shopping list", search_path %> </button>
-<% @store_hash.each do |grocery_store, _info| %>
-<li><%= grocery_store %></li>
-<% end %>
-</ul>
-</div>
-
-<div class="product_lists" id="favourite_list">
-<ul>
-<button class="dash_btn" id="dash_grocer">
-<%= link_to "shopping cart", cart_path %> </button>
-<%= render partial: 'cart', locals: { store_hash: @store_hash } %>
-</ul>
-</div>
-</div>
+    <div class="product_lists" id="favourite_list">
+      <ul>
+        <button class="dash_btn" id="dash_grocer">
+          <%= link_to "shopping cart", cart_path %> </button>
+        <%= render partial: 'cart', locals: { store_hash: @store_hash } %>
+      </ul>
+    </div>
+  </div>
 </body>
