@@ -1,5 +1,5 @@
 .main {
-  background-color: white;
+  background-color: #BBE2AE;
   padding: 30px;
   border-radius: 7px;
 }
@@ -15,7 +15,7 @@
   height: 750px;
   position: relative;
   border-radius: 7px;
-
+  margin-top: 2px;
 }
 
 .bubbles {
@@ -71,25 +71,52 @@
 }
 
 // Grocery and favourite lists on dashboard
-.product_lists {
+.tab-2, .tab-3 {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.dash_stores, .product_lists {
+  margin-top: 20px;
+}
+
+.store {
   border: transparent;
   justify-content: left;
   margin-bottom: 20px;
-  padding-top: 10px;
+  padding: 10px;
+  width: 620px;
+  right: 45px;
+  gap: 40px;
+  border-radius: 7px;
+  background-color: rgba(198, 211, 245, 0.35);
+  box-shadow: rgba(61, 61, 219, 0.1) 0px 0px 20px 0px
+}
+
+.store_item, .store_item_price {
+  margin-left: 5px;
+  font-size: smaller;
+  display: flex;
+  justify-content: end;
+}
+
+.dash_store {
+  border: transparent;
+  justify-content: left;
+  margin-bottom: 20px;
+  padding: 20px;
   width: 600px;
   right: 45px;
+  gap: 40px;
   border-radius: 7px;
-  background-color: #BBE2AE;
+  background-color: rgba(198, 211, 245, 0.35);
+  box-shadow: rgba(61, 61, 219, 0.1) 0px 0px 20px 0px;
 }
 
-  #grocer_list {
+  #grocer_list, #favourite_list {
   margin-top: 30px;
   overflow: auto;
-}
-
-  #favourite_list{
-  margin-top: 30px;
-  overflow: auto;
+  margin-bottom: 20px;
 }
 
 .hidden {

@@ -1,17 +1,21 @@
 <% rendered_items = Set.new %>
 <% store_hash.each_with_index do |(store, value), index| %>
   <% if index < 4 %>
-  <li> <div class="store">
-      <%= store %>
+  <div class="store">
+    <div> <%= store %> </div>
       <% value[:items].each do |lineitem| %>
         <% unless rendered_items.include?(lineitem.item.id) %>
-          <%= lineitem.item.name %>
-          <%= value[:totalprice] %>
+          <div class="store_item"> <%= lineitem.quantity %> x <%= lineitem.item.name %>
+           <%# <%= number_to_currency( (lineitem.item.price / 100.0), unit: '$', format: '%u%n') %> </div>
+           <div class="store_item_price">
+           <%# <%= number_to_currency(((lineitem.item.price * lineitem.quantity) / 100.0), unit: '$', format: '%u%n') %>
+           </div>
+
           <% rendered_items.add(lineitem.item.id) %>
         <% end %>
       <% end %>
-    </div></li>
+    </div>
   <% else %>
-    <% break %>
+  <% break %>
   <% end %>
 <% end %>
