@@ -1,28 +1,51 @@
 <body>
   <%# all products cover entire page, white txt, black backdrop %>
   <div class="product_bar">
-    <h1>Your shopping carts</h1>
+    <h4>Your shopping carts</h4>
   </div>
 
-  <div class="stores-container">
-    <% @store_hash.each do |store, value| %>
-    <div class="store">
-    <div class="header">
-      <h2><%= store %></h2>
-      <div class="price"><h3>Cart: <%= number_to_currency(value[:totalprice], unit: '$', format: '%u%n') %></h3></div>
-      </div>
-      <% value[:items].each do |lineitem| %>
-      <div class="item">
-        <div class="line"><%= lineitem.item.name %></div> <div class="line-price"><%= lineitem.quantity %></div> <div class="line-price">$<%= (lineitem.item.price * lineitem.quantity) / 100.0 %></div>
+  <div class="cart_body">
+    <div class="stores-container">
+      <% @store_hash.each do |store, value| %>
+      <div class="store">
+
+        <div class="store-details">
+          <h2><%= store %></h2>
+          <div class="price">
+            <h5>Cart: <%= number_to_currency(value[:totalprice], unit: '$', format: '%u%n') %></h5>
+          </div>
+          <div class="header">
+            <div class="column-header">Item</div>
+            <%# <div class="column-header">Quantity</div> %>
+            <div class="column-header">Price</div>
+          </div>
+          <% value[:items].each do |lineitem| %>
+          <div class="item">
+            <div class="line"><%= lineitem.quantity %> x <%= lineitem.item.name %> </div>
+            <div class="line-price">$<%= (lineitem.item.price * lineitem.quantity) / 100.0 %></div>
+          </div>
+          <% end %>
+        </div>
       </div>
       <% end %>
     </div>
-    <% end %>
-  </div>
 
-  <div class="total">
-    <h1>Cart Total</h1>
-    <h1><%= number_to_currency(@total_price, unit: '$', format: '%u%n') %></h1>
-  </div>
+    <div class="cart-btns">
+      <div class="total">
+        <h5>Cart Total</h5>
+        <h5><%= number_to_currency(@total_price, unit: '$', format: '%u%n') %></h5>
+      </div>
+
+    <div class="btn-row-2">
+      <div class="savings-btn">
+        <h5>Total savings</h5>
+        <h5><%= number_to_currency(@counter, unit: '$', format: '%u%n') %></h5>
+      </div>
+
+      <div class="print-btn">
+        <h5>Print list</h5>
+      </div>
+      </div>
+    </div>
 
 </body>

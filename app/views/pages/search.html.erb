@@ -1,7 +1,7 @@
 <body>
   <%# all products cover entire page, white txt, black backdrop %>
   <div class="product_bar">
-    <h1>All products</h1>
+    <h4>All Products</h4>
   </div>
 
   <%# search bar similar to all products but colours reversed %>
@@ -40,7 +40,7 @@
 
     <%# grocery items %>
     <div class="right_div">
-      <h3 class="header">Grocery List</h3>
+      <h3 class="header-grocery">Grocery List</h3>
       <div class="list_bar">
         <% @line_items.each do |line| %>
         <div class="line-item">
@@ -75,7 +75,7 @@
         <% end %>
       </div>
 
-      <%= link_to "Generate Shopping List", cart_path, method: :post, class: "btn btn-success", style: "border-radius: 20px;" %>
+      <%= link_to "Generate Shopping List", cart_path, method: :post, class: "return_btn", style: "border-radius: 20px;" %>
     </div>
   </div>
   </div>
