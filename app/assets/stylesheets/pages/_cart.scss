@@ -1,83 +1,119 @@
-// .supermarket_container {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
-//   gap: 20px; /* Adjust gap between items */
-// // }
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-columns: 1fr 1fr;
+  /* Two columns */
+}
+
+.cart_body {
+  background-color: white;
+  height: 700px;
+  border-radius: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .stores-container {
-  display: flex; /* Display children in a flex container */
-  flex-wrap: wrap; /* Wrap the children to form multiple rows */
-  gap: 40px; /* Add space between columns */
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+  /* Add space between columns */
 }
 
 .store {
-  flex: 1 0 200px; /* Set a flex basis with a maximum width of 200px */
-  padding: 20px;
-  // border: 1px solid #ccc;
-  box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-.header {
-  display: flex; /* Display children in a flex container */
-  flex-wrap: wrap; /* Wrap the children to form multiple rows */
+  flex: 1 0 200px;
+  box-sizing: border-box;
+  margin-top: 10px;
 }
 
 h2 {
   flex: 1 0 200px;
   margin: 8px;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
-  background-color: rgb(244, 231, 158);
+  background-color: rgba(198, 211, 245, 0.5);
   text-align: center;
   border-radius: 7px;
 }
 
-.price {
+.header {
+  display: flex;
+  /* Display children in a flex container */
+  flex-wrap: wrap;
   margin: 8px;
-  flex: 1 0 200px; /* Set a flex basis with a maximum width of 200px */
+  flex: 1 0 200px;
+  /* Set a flex basis with a maximum width of 200px */
   padding: 5px;
   box-sizing: border-box;
-  text-align: center; /* Ensure padding is included in the width */
+  text-align: center;
+  /* Ensure padding is included in the width */
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: rgba(61, 61, 219, 0.2) 0px 0px 10px 0px;
+}
+
+.price {
+  margin: 8px;
+  flex: 1 0 200px;
+  /* Set a flex basis with a maximum width of 200px */
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  /* Ensure padding is included in the width */
   background-color: white;
   border-radius: 7px;
 }
 
 .item {
-  display: flex; /* Display children in a flex container */
-
+  display: flex;
+  /* Display children in a flex container */
+  background-color: white;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 5px;
+  border-radius: 7px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .line {
-  margin: 8px;
-  padding: 5px;
-  padding-left: 20px;
-  border-radius: 7px;
   background-color: white;
-  border: 0.5px black solid;
   text-align: left;
-  width: 80%;
+  width: 72%;
+  padding-left: 10px;
 }
 
-.line-price {
-  margin: 8px;
-  padding: 5px;
-  text-align: center; /* Ensure padding is included in the width */
+.line-price,
+.line-quantity {
+  flex: 1;
+  text-align: left;
+  /* Ensure padding is included in the width */
   background-color: white;
-  border: 0.5px black solid;
-  border-radius: 7px;
   width: 20%;
 }
 
+.cart-btns {
+display: flow;
+}
+
+.btn-row-2 {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
 .total {
-  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
   padding: 5px;
   box-sizing: border-box;
   background-color: white;
   text-align: center;
   border-radius: 7px;
-  max-width: 33%;
+  width: 28%;
+  box-shadow: rgba(61, 61, 219, 0.2) 0px 7px 29px 0px;
+}
+
+.column-header {
+  flex: 1;
+  font-weight: bold;
 }

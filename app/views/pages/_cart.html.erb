@@ -1,7 +1,7 @@
 <% rendered_items = Set.new %>
 <% store_hash.each_with_index do |(store, value), index| %>
   <% if index < 4 %>
-  <div class="store">
+  <div class="user_store">
     <div> <%= store %> </div>
       <% value[:items].each do |lineitem| %>
         <% unless rendered_items.include?(lineitem.item.id) %>
