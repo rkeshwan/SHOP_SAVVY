@@ -38,12 +38,12 @@
 
     <div class="btn-row-2">
       <div class="savings-btn">
-        <h5>Total savings</h5>
+         <button class="dash_btn"> <%= link_to "View new savings", dashboard_path %> </button>
         <h5><%= number_to_currency(@counter, unit: '$', format: '%u%n') %></h5>
       </div>
 
       <div class="print-btn">
-        <h5>Print list</h5>
+        <button class="dash_btn"> <%= link_to "Print list", dashboard_path %> </button>
       </div>
       </div>
     </div>

@@ -102,6 +102,7 @@
             <div class="dash_list">
               <%= render partial: 'cart', locals: { store_hash: @store_hash } %>
             </div>
+            <button class="dash_btn" id="dash_grocer"> <%= link_to "Go to Cart", cart_path %> </button>
             <button class="dash_btn" id="dash_grocer"> <%= link_to "Edit list", search_path %> </button>
             <button class="dash_btn" id="dash_grocer"> <%= link_to "Print list", search_path %> </button>
           </div>
