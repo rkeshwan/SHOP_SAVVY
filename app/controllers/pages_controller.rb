@@ -5,16 +5,29 @@ class PagesController < ApplicationController
   end
 
   def search
+    # @items = sorting(Item.all)
+    # Search
     if params[:query].present?
-      @items = Item.search_by_name_and_category(params[:query])
-    else
-      @items = Item.where("id % 17 = 0").offset(4).limit(50).shuffle
-    end
+      records = Item.search_by_name_and_category(params[:query])
+      @items = sorting(records)
 
+    else
+      records_shuffle = Item.where("id % 17 = 0").offset(4).limit(50).shuffle
+      @items = sorting(records_shuffle)
+
+    end
+    # Grocerylist
     @line_items = GroceryList.find_by(user: current_user).line_items
   end
 
-  def index
+  def sorting(records)
+    if params[:sort_order] == "asc"
+      return records.sort_by { |item| item[:price] }
+    elsif params[:sort_order] == "desc"
+      return records.sort_by { |item| -item[:price] }
+    else
+      return records
+    end
   end
 
   def dashboard
