@@ -39,7 +39,7 @@ puts "Creating items"
 result = File.read(File.join(File.dirname(__FILE__), "all-products.json"))
 JSON.parse(result).each do |json_item|
   Store.all.each do |store|
-    adjusted_price = (json_item["price"] * rand(0.90..1.10)) * 100
+    adjusted_price = (json_item["price"] * rand(0.70..1.20)) * 100
     item = Item.new(
       name: json_item["name"],
       category: json_item["categoryIds"].first,
