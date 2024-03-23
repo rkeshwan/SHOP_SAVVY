@@ -60,14 +60,15 @@
             <div class="grocery_details">
             <%= line.item.name %> | <%= line.item.stores.first.name %> |
             <div id="price_for_item_<%=line.id%>">
-            <%= number_to_currency(line.item.price  * line.quantity / 100.0, unit: '$', format: '%u%n') %> | Qty:
-            <%= line.quantity %>
+            <%= number_to_currency(line.item.price  * line.quantity / 100.0, unit: '$', format: '%u%n') %>
             </div>
-            <div class="qty" data-controller="quantity-update" data-quantity-update-line-id-value="<%=line.id%>" data-quantity-update-unit-price-value="<%=line.item.price %>">
-            <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
-            <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id, action: "change->quantity-update#calculate" } %>
-            <%= f.submit "Update Quantity"%>
-            <% end %>
+            <div class="qty" data-controller="quantity-update" data-quantity-update-line-id-value="<%=line.id%>"
+              data-quantity-update-unit-price-value="<%=line.item.price%>">
+              <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false, data: { turbo_frame: 'quantity_updates' } do |f| %>
+              Qty:
+              <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id, action: "change->quantity-update#calculate" } %>
+              <% f.submit "Update Quantity", data: { disable_with: "Updating..." }%>
+              <% end %>
             </div>
             </div>
             <div class="button">
