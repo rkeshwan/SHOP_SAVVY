@@ -8,7 +8,7 @@
   <div class="display">
 
   <%# <div class="col-sm-7 my-3"> %>
-   <div class="left_div">
+  <div class="left_div">
     <div class="product_search">
       <%= form_with url: search_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
@@ -20,9 +20,20 @@
     </div>
   <%# </div> %>
 
+  <div class="select-wrapper">
+  <%# <select class="select-field" id="listsorting">
+  <option value="descending">Price: High-Low</option>
+  <option value="ascending">Price: Low-High</option>
+  </select> %>
+    <%= form_tag(search_path, method: "get") do %>
+    <%= hidden_field_tag :query, params[:query] if params[:query].present? %>
+    <%= select_tag :sort_order, options_for_select([["Price: Low to High", "asc"], ["Price: High to Low", "desc"]], params[:sort_order]), prompt: "Sort by Price" %>
+    <%= submit_tag "Sort" %>
+    <% end %>
+  </div>
+
     <%# left div works fine %>
     <div class="card_wrap">
-
         <% @items.each do |item|  %>
         <div class="items" id="grocery_items">
           <%= image_tag item.photo_url, height: 120, width: 120, crop: :fill %>
@@ -41,7 +52,7 @@
 
     <%# grocery items %>
     <div class="right_div">
-     <h3 class="header">Grocery List</h3>
+      <h3 class="header">Grocery List</h3>
       <div class="list_bar">
           <% @line_items.each do |line| %>
           <div class="line-item">
@@ -49,10 +60,10 @@
             <div class="grocery_details">
             <%= line.item.name %> | <%= line.item.stores.first.name %> |
             <div id="price_for_item_<%=line.id%>">
-            <%= number_to_currency(line.item.price * line.quantity / 100.0, unit: '$', format: '%u%n') %> | Qty:
+            <%= number_to_currency(line.item.price  * line.quantity / 100.0, unit: '$', format: '%u%n') %> | Qty:
             <%= line.quantity %>
             </div>
-            <div class="qty" data-controller="quantity-update" data-quantity-update-line-id-value="<%=line.id%>" data-quantity-update-unit-price-value="<%=line.item.price%>">
+            <div class="qty" data-controller="quantity-update" data-quantity-update-line-id-value="<%=line.id%>" data-quantity-update-unit-price-value="<%=line.item.price %>">
             <%= form_with model: line, method: :patch, url: adjust_item_line_item_path(line), local: false do |f| %>
             <%= f.number_field :quantity, min: 1, max: 100, data: { line_id: line.id, action: "change->quantity-update#calculate" } %>
             <%= f.submit "Update Quantity"%>
