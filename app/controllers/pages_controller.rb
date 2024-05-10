@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  # skip_before_action :authenticate_user!, only: [:home]
 
   def home
   end
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 
     end
     # Grocerylist
-    @line_items = GroceryList.find_by(user: current_user).line_items
+    @line_items = GroceryList.find_by(user: 6).line_items
   end
 
   def sorting(records)
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @grocery_list = GroceryList.find_by(user: current_user)
+    @grocery_list = GroceryList.find_by(user: 6)
     @line_items = @grocery_list.line_items
     @item_id_hash = {}
     @counter = 0
@@ -94,7 +94,7 @@ class PagesController < ApplicationController
   private
 
   def cart
-    @grocery_list = GroceryList.find_by(user: current_user)
+    @grocery_list = GroceryList.find_by(user: 6)
     @line_items = @grocery_list.line_items
     @store_hash = {}
     @total_price = 0
