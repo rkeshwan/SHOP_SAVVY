@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 
     end
     # Grocerylist
-    @line_items = GroceryList.find_by(user: 6).line_items
+    @line_items = GroceryList.find_by(user: User.find_by(email: "anna@gmail.com")).line_items
   end
 
   def sorting(records)
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @grocery_list = GroceryList.find_by(user: 6)
+    @grocery_list = GroceryList.find_by(user: User.find_by(email: "anna@gmail.com"))
     @line_items = @grocery_list.line_items
     @item_id_hash = {}
     @counter = 0
@@ -94,7 +94,7 @@ class PagesController < ApplicationController
   private
 
   def cart
-    @grocery_list = GroceryList.find_by(user: 6)
+    @grocery_list = GroceryList.find_by(user: User.find_by(email: "anna@gmail.com"))
     @line_items = @grocery_list.line_items
     @store_hash = {}
     @total_price = 0

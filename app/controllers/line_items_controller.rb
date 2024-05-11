@@ -1,9 +1,9 @@
 class LineItemsController < ApplicationController
   # before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
 
   def add_item
-    @grocery_list = anna.grocery_list # user's grocery list
+    @grocery_list = User.find_by(email: "anna@gmail.com").grocery_list # user's grocery list
     @line_item = LineItem.new(item_id: params[:id], quantity: 1, grocery_list: @grocery_list) # key value pair, hard-coded quantity
     @line_item.save
     redirect_to search_path # stay on the same page
